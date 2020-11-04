@@ -14,6 +14,7 @@
         "@inertiajs/inertia-vue": "^0.2.0",
         "@tailwindcss/ui": "^0.6.0",
         "axios": "^0.19",
+        "callback-loader": "^0.2.4",
         "cross-env": "^7.0",
         "laravel-jetstream": "^0.0.3",
         "laravel-mix": "^5.0.1",
@@ -23,9 +24,14 @@
         "resolve-url-loader": "^3.1.0",
         "tailwindcss": "^1.8.0",
         "vue": "^2.5.17",
+        "vue-icons": "^1.4.2",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "admin-lte": "^3.0.5"
+        "@fortawesome/fontawesome-free": "^5.15.1",
+        "admin-lte": "^3.0.5",
+        "bootstrap": "^3.4.1",
+        "bootstrap-switch": "^3.3.4",
+       
     }
 }

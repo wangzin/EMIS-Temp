@@ -3,3 +3,5 @@
 @import 'tailwindcss/utilities';
 @import 'admin-lte';
 
+@import '@fortawesome/fontawesome-free';
+
