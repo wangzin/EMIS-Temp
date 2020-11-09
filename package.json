@@ -13,7 +13,7 @@
         "@inertiajs/inertia": "^0.3.0",
         "@inertiajs/inertia-vue": "^0.2.0",
         "@tailwindcss/ui": "^0.6.0",
-        "axios": "^0.19",
+        "axios": "^0.19.2",
         "callback-loader": "^0.2.4",
         "cross-env": "^7.0",
         "laravel-jetstream": "^0.0.3",
@@ -29,9 +29,10 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.1",
+        "@smartweb/vue-flash-message": "^0.6.10",
         "admin-lte": "^3.0.5",
-        "bootstrap": "^3.4.1",
-        "bootstrap-switch": "^3.3.4",
-       
+        "sweetalert2": "^10.9.1",
+        "vform": "^1.0.1",
+        "vue-progressbar": "^0.7.5"
     }
 }

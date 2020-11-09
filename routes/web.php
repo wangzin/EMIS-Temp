@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrgController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +21,10 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
+Route::get('/usermanagement', [UserController::class,'getusers'])->name('usermanagement'); 
+Route::post('/saveuser', [UserController::class,'saveuser'])->name('saveuser');
+Route::get('/getdzongkhag', [UserController::class,'getdzongkhaglist'])->name('getdzongkhag');
+Route::get('/gewog/{id}', [UserController::class,'gewoglist'])->name('gewog');
+Route::get('/village/{id}', [UserController::class,'getvillagelist'])->name('village');
+
+Route::resource('/organizationIndex', OrgController::class); 
