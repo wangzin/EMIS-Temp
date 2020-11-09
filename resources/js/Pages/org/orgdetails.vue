@@ -113,7 +113,7 @@
                                         <button @click="editWindow(row)" class="btn btn-block btn-primary">Edit</button>
                                     </td>
                                      <td class="border px-4 py-2" >
-                                        <button @click="deleteRow(row)" class="btn btn-danger btn-block">Delete</button>
+                                        <button @click="deleteRow(row.Id)" class="btn btn-danger btn-block">Delete</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -198,12 +198,48 @@
             },
             save: function (data) {
                 if(this.validateform()){
+                    this.$Progress.start();
                     this.$inertia.post('/organizationIndex', data)
                     this.reset();
                     this.isShow=false;
                     this.editMode = false;
+                    this.$Progress.end();
                 }
                 
+            },
+            deleteRow(id) {
+                Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+
+                if (result.value) {
+                    //Send Request to server
+                    this.$inertia.delete('/organizationIndex/'+id)
+                        .then((response)=> {
+                            alert(response.text);
+                                Swal.fire(
+                                'Deleted!',
+                                'User deleted successfully',
+                                'success'
+                                )
+
+                        }).catch(() => {
+                            Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong!',
+                            footer: '<a href>Why do I have this issue?</a>'
+                            })
+                        })
+                    }
+
+                })
             },
             validateform: function(){
                 let retuentype=true;

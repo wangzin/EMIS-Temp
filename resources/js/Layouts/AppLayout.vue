@@ -4,6 +4,7 @@
       <div class="wrapper">
         <headnav/>
         <sidenav />
+        <vue-progress-bar></vue-progress-bar>
         <div class="content-wrapper">
           <section class="content">
           <div class="container-fluid">

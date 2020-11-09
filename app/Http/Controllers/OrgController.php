@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\OrgModel;
 use Illuminate\Support\Facades\Validator;
+use DB;
 class OrgController extends Controller
 {
     /**
@@ -81,6 +82,12 @@ class OrgController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('t_org_details')
+            ->where('Id', '=', $id)
+            ->delete();
+        //return redirect()->back()->with('message', 'deleted successfully.');
+        return response()->json([
+            'message' => 'deleted successfully'
+           ]);
     }
 }
