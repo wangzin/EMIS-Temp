@@ -176,7 +176,7 @@
             openModal: function () {
                 this.isShow=true;
             },
-             editWindow(user){
+             editWindow(user){ 
                 this.reset();
                 this.isShow = true;
                 this.form.fill(user)
