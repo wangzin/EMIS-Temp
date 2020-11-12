@@ -2979,6 +2979,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3025,6 +3037,36 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_ApplicationMark__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Jetstream/ApplicationMark */ "./resources/js/Jetstream/ApplicationMark.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5076,6 +5118,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/Welcome */ "./resources/js/Jetstream/Welcome.vue");
+//
+//
 //
 //
 //
@@ -62822,9 +62866,33 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm._m(0)
+      _c("footer")
     ])
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Layouts/footer.vue?vue&type=template&id=791b897f&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Layouts/footer.vue?vue&type=template&id=791b897f& ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -62839,10 +62907,10 @@ var staticRenderFns = [
         ]),
         _vm._v(".")
       ]),
-      _vm._v("\n      All rights reserved.\n      "),
+      _vm._v("\n    All rights reserved.\n    "),
       _c("div", { staticClass: "float-right d-none d-sm-inline-block" }, [
         _c("b", [_vm._v("Version")]),
-        _vm._v(" 3.0.5\n      ")
+        _vm._v(" 3.0.5\n    ")
       ])
     ])
   }
@@ -62868,288 +62936,374 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "nav",
-    {
-      staticClass: "main-header navbar navbar-expand navbar-white navbar-light"
-    },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-        _vm._m(2),
+  return _c("div", [
+    _c("link", {
+      attrs: {
+        rel: "stylesheet",
+        href: "../../plugins/fontawesome-free/css/all.min.css"
+      }
+    }),
+    _vm._v(" "),
+    _c("link", {
+      attrs: {
+        rel: "stylesheet",
+        href:
+          "https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+      }
+    }),
+    _vm._v(" "),
+    _c("link", {
+      attrs: {
+        rel: "stylesheet",
+        href: "../../plugins/daterangepicker/daterangepicker.css"
+      }
+    }),
+    _vm._v(" "),
+    _c("link", {
+      attrs: {
+        rel: "stylesheet",
+        href: "../../plugins/icheck-bootstrap/icheck-bootstrap.min.css"
+      }
+    }),
+    _vm._v(" "),
+    _c("link", {
+      attrs: {
+        rel: "stylesheet",
+        href:
+          "../../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css"
+      }
+    }),
+    _vm._v(" "),
+    _c("link", {
+      attrs: {
+        rel: "stylesheet",
+        href:
+          "../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"
+      }
+    }),
+    _vm._v(" "),
+    _c("link", {
+      attrs: {
+        rel: "stylesheet",
+        href: "../../plugins/select2/css/select2.min.css"
+      }
+    }),
+    _vm._v(" "),
+    _c("link", {
+      attrs: {
+        rel: "stylesheet",
+        href:
+          "../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css"
+      }
+    }),
+    _vm._v(" "),
+    _c("link", {
+      attrs: {
+        rel: "stylesheet",
+        href:
+          "../../plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css"
+      }
+    }),
+    _vm._v(" "),
+    _c("link", {
+      attrs: { rel: "stylesheet", href: "../../dist/css/adminlte.min.css" }
+    }),
+    _vm._v(" "),
+    _c(
+      "nav",
+      {
+        staticClass:
+          "main-header navbar navbar-expand navbar-white navbar-light"
+      },
+      [
+        _vm._m(0),
         _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "nav-item" },
-          [
-            _c("jet-dropdown", {
-              attrs: { align: "right", width: "48" },
-              scopedSlots: _vm._u([
-                {
-                  key: "trigger",
-                  fn: function() {
-                    return [
-                      _vm.$page.jetstream.managesProfilePhotos
-                        ? _c(
-                            "button",
-                            {
-                              staticClass:
-                                "flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
-                            },
-                            [
-                              _c("img", {
-                                staticClass:
-                                  "h-8 w-8 rounded-full object-cover",
-                                attrs: {
-                                  src: _vm.$page.user.profile_photo_url,
-                                  alt: _vm.$page.user.name
-                                }
-                              })
-                            ]
-                          )
-                        : _c(
-                            "button",
-                            {
-                              staticClass:
-                                "flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out"
-                            },
-                            [
-                              _c("div", [_vm._v(_vm._s(_vm.$page.user.name))]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "ml-1" }, [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "fill-current h-4 w-4",
-                                    attrs: {
-                                      xmlns: "http://www.w3.org/2000/svg",
-                                      viewBox: "0 0 20 20"
-                                    }
-                                  },
-                                  [
-                                    _c("path", {
-                                      attrs: {
-                                        "fill-rule": "evenodd",
-                                        d:
-                                          "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
-                                        "clip-rule": "evenodd"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]
-                          )
-                    ]
-                  },
-                  proxy: true
-                },
-                {
-                  key: "content",
-                  fn: function() {
-                    return [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "block px-4 py-2 text-xs text-gray-400"
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Manage Account\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "jet-dropdown-link",
-                        { attrs: { href: _vm.route("profile.show") } },
-                        [
-                          _vm._v(
-                            "\n                        Profile\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm.$page.jetstream.hasApiFeatures
-                        ? _c(
-                            "jet-dropdown-link",
-                            { attrs: { href: _vm.route("api-tokens.index") } },
-                            [
-                              _vm._v(
-                                "\n                        API Tokens\n                    "
-                              )
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "border-t border-gray-100" }),
-                      _vm._v(" "),
-                      _vm.$page.jetstream.hasTeamFeatures
-                        ? [
-                            _c(
-                              "div",
+        _vm._m(1),
+        _vm._v(" "),
+        _c("ul", { staticClass: "navbar-nav ml-auto" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "nav-item" },
+            [
+              _c("jet-dropdown", {
+                attrs: { align: "right", width: "48" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "trigger",
+                    fn: function() {
+                      return [
+                        _vm.$page.jetstream.managesProfilePhotos
+                          ? _c(
+                              "button",
                               {
                                 staticClass:
-                                  "block px-4 py-2 text-xs text-gray-400"
+                                  "flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
                               },
                               [
-                                _vm._v(
-                                  "\n                            Manage Team\n                        "
-                                )
+                                _c("img", {
+                                  staticClass:
+                                    "h-8 w-8 rounded-full object-cover",
+                                  attrs: {
+                                    src: _vm.$page.user.profile_photo_url,
+                                    alt: _vm.$page.user.name
+                                  }
+                                })
                               ]
-                            ),
-                            _vm._v(" "),
-                            _c(
+                            )
+                          : _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out"
+                              },
+                              [
+                                _c("div", [
+                                  _vm._v(_vm._s(_vm.$page.user.name))
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "ml-1" }, [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "fill-current h-4 w-4",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        viewBox: "0 0 20 20"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          d:
+                                            "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
+                                          "clip-rule": "evenodd"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                      ]
+                    },
+                    proxy: true
+                  },
+                  {
+                    key: "content",
+                    fn: function() {
+                      return [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "block px-4 py-2 text-xs text-gray-400"
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Manage Account\n                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "jet-dropdown-link",
+                          { attrs: { href: _vm.route("profile.show") } },
+                          [
+                            _vm._v(
+                              "\n                        Profile\n                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm.$page.jetstream.hasApiFeatures
+                          ? _c(
                               "jet-dropdown-link",
                               {
-                                attrs: {
-                                  href: _vm.route(
-                                    "teams.show",
-                                    _vm.$page.user.current_team
-                                  )
-                                }
+                                attrs: { href: _vm.route("api-tokens.index") }
                               },
                               [
                                 _vm._v(
-                                  "\n                            Team Settings\n                        "
+                                  "\n                        API Tokens\n                    "
                                 )
                               ]
-                            ),
-                            _vm._v(" "),
-                            _vm.$page.jetstream.canCreateTeams
-                              ? _c(
-                                  "jet-dropdown-link",
-                                  {
-                                    attrs: { href: _vm.route("teams.create") }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                            Create New Team\n                        "
-                                    )
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _c("div", {
-                              staticClass: "border-t border-gray-100"
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "block px-4 py-2 text-xs text-gray-400"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Switch Teams\n                        "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.$page.user.all_teams, function(team) {
-                              return [
-                                _c(
-                                  "form",
-                                  {
-                                    key: team.id,
-                                    on: {
-                                      submit: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.switchToTeam(team)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "jet-dropdown-link",
-                                      { attrs: { as: "button" } },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "flex items-center" },
-                                          [
-                                            team.id ==
-                                            _vm.$page.user.current_team_id
-                                              ? _c(
-                                                  "svg",
-                                                  {
-                                                    staticClass:
-                                                      "mr-2 h-5 w-5 text-green-400",
-                                                    attrs: {
-                                                      fill: "none",
-                                                      "stroke-linecap": "round",
-                                                      "stroke-linejoin":
-                                                        "round",
-                                                      "stroke-width": "2",
-                                                      stroke: "currentColor",
-                                                      viewBox: "0 0 24 24"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c("path", {
-                                                      attrs: {
-                                                        d:
-                                                          "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                                      }
-                                                    })
-                                                  ]
-                                                )
-                                              : _vm._e(),
-                                            _vm._v(" "),
-                                            _c("div", [
-                                              _vm._v(_vm._s(team.name))
-                                            ])
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]
-                            }),
-                            _vm._v(" "),
-                            _c("div", {
-                              staticClass: "border-t border-gray-100"
-                            })
-                          ]
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c(
-                        "form",
-                        {
-                          on: {
-                            submit: function($event) {
-                              $event.preventDefault()
-                              return _vm.logout($event)
-                            }
-                          }
-                        },
-                        [
-                          _c("jet-dropdown-link", { attrs: { as: "button" } }, [
-                            _vm._v(
-                              "\n                            Logout\n                        "
                             )
-                          ])
-                        ],
-                        1
-                      )
-                    ]
-                  },
-                  proxy: true
-                }
-              ])
-            })
-          ],
-          1
-        )
-      ])
-    ]
-  )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "border-t border-gray-100" }),
+                        _vm._v(" "),
+                        _vm.$page.jetstream.hasTeamFeatures
+                          ? [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block px-4 py-2 text-xs text-gray-400"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            Manage Team\n                        "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "jet-dropdown-link",
+                                {
+                                  attrs: {
+                                    href: _vm.route(
+                                      "teams.show",
+                                      _vm.$page.user.current_team
+                                    )
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            Team Settings\n                        "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm.$page.jetstream.canCreateTeams
+                                ? _c(
+                                    "jet-dropdown-link",
+                                    {
+                                      attrs: { href: _vm.route("teams.create") }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                            Create New Team\n                        "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c("div", {
+                                staticClass: "border-t border-gray-100"
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block px-4 py-2 text-xs text-gray-400"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            Switch Teams\n                        "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._l(_vm.$page.user.all_teams, function(team) {
+                                return [
+                                  _c(
+                                    "form",
+                                    {
+                                      key: team.id,
+                                      on: {
+                                        submit: function($event) {
+                                          $event.preventDefault()
+                                          return _vm.switchToTeam(team)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "jet-dropdown-link",
+                                        { attrs: { as: "button" } },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "flex items-center"
+                                            },
+                                            [
+                                              team.id ==
+                                              _vm.$page.user.current_team_id
+                                                ? _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "mr-2 h-5 w-5 text-green-400",
+                                                      attrs: {
+                                                        fill: "none",
+                                                        "stroke-linecap":
+                                                          "round",
+                                                        "stroke-linejoin":
+                                                          "round",
+                                                        "stroke-width": "2",
+                                                        stroke: "currentColor",
+                                                        viewBox: "0 0 24 24"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                : _vm._e(),
+                                              _vm._v(" "),
+                                              _c("div", [
+                                                _vm._v(_vm._s(team.name))
+                                              ])
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]
+                              }),
+                              _vm._v(" "),
+                              _c("div", {
+                                staticClass: "border-t border-gray-100"
+                              })
+                            ]
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "form",
+                          {
+                            on: {
+                              submit: function($event) {
+                                $event.preventDefault()
+                                return _vm.logout($event)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "jet-dropdown-link",
+                              { attrs: { as: "button" } },
+                              [
+                                _vm._v(
+                                  "\n                            Logout\n                        "
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    },
+                    proxy: true
+                  }
+                ])
+              })
+            ],
+            1
+          )
+        ])
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -63306,27 +63460,19 @@ var staticRenderFns = [
       { staticClass: "main-sidebar sidebar-dark-primary elevation-4" },
       [
         _c("a", { staticClass: "brand-link", attrs: { href: "/dashboard" } }, [
+          _c("img", {
+            staticClass: "brand-image img-circle elevation-3",
+            staticStyle: { opacity: ".8" },
+            attrs: { src: "dist/img/logo.png", alt: "AdminLTE Logo" }
+          }),
+          _vm._v(" "),
           _c("span", { staticClass: "brand-text font-weight-light" }, [
-            _vm._v("AdminLTE 3")
+            _c("b", [_vm._v("EMIS")]),
+            _vm._v(" (Dashboard) ")
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "sidebar" }, [
-          _c("div", { staticClass: "user-panel mt-3 pb-3 mb-3 d-flex" }, [
-            _c("div", { staticClass: "image" }, [
-              _c("img", {
-                staticClass: "img-circle elevation-2",
-                attrs: { src: "dist/img/user2-160x160.jpg", alt: "User Image" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "info" }, [
-              _c("a", { staticClass: "d-block", attrs: { href: "#" } }, [
-                _vm._v("Alexander Pierce")
-              ])
-            ])
-          ]),
-          _vm._v(" "),
           _c("nav", { staticClass: "mt-2" }, [
             _c(
               "ul",
@@ -63339,41 +63485,232 @@ var staticRenderFns = [
                 }
               },
               [
-                _c("li", { staticClass: "nav-item has-treeview menu-open" }, [
+                _c("li", { staticClass: "nav-item has-treeview" }, [
+                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "nav-icon fas fa-copy" }),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v("\n              Administration\n              "),
+                      _c("i", { staticClass: "fas fa-angle-left right" })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "nav nav-treeview" }, [
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "/profileHome" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-angle-double-right nav-icon"
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("User Profile Management")])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "/aclhome" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-angle-double-right nav-icon"
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("ACL Management")])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "/masterManagement" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-angle-double-right nav-icon"
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Master Management")])
+                        ]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item has-treeview" }, [
+                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "nav-icon fas fa-home" }),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v("\n               Organization\n              "),
+                      _c("i", { staticClass: "fas fa-angle-left right" })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "nav nav-treeview" }, [
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "/organizationIndex" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-angle-double-right nav-icon"
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("School")])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "/aclhome" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-angle-double-right nav-icon"
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(" ECR")])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "/masterManagement" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-angle-double-right nav-icon"
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("ECCD")])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "/masterManagement" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-angle-double-right nav-icon"
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Others")])
+                        ]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item has-treeview" }, [
                   _c(
                     "a",
                     {
-                      staticClass: "nav-link active",
-                      attrs: { href: "/dashboard" }
+                      staticClass: "nav-link",
+                      attrs: { href: "/staffManagement" }
                     },
                     [
-                      _c("i", {
-                        staticClass: "nav-icon fas fa-tachometer-alt"
-                      }),
+                      _c("i", { staticClass: "nav-icon fa fa-user" }),
                       _vm._v(" "),
                       _c("p", [
-                        _vm._v("\n              Dashboard\n              "),
-                        _c("i", { staticClass: "right fas fa-angle-left" })
+                        _vm._v("\n              Staff Management\n            ")
                       ])
                     ]
                   )
                 ]),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "/organizationIndex" }
-                    },
-                    [
-                      _c("i", { staticClass: "nav-icon fas fa-th" }),
-                      _vm._v(" "),
-                      _c("p", [
-                        _vm._v("\n              Organization\n            ")
-                      ])
-                    ]
-                  )
+                _c("li", { staticClass: "nav-item has-treeview" }, [
+                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "nav-icon fas fa-users" }),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "\n               Student Management\n              "
+                      ),
+                      _c("i", { staticClass: "fas fa-angle-left right" })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "nav nav-treeview" }, [
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "/organizationIndex" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-angle-double-right nav-icon"
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Regular Student")])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "/aclhome" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-angle-double-right nav-icon"
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(" CE Student")])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "/masterManagement" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-angle-double-right nav-icon"
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("ECCD Student")])
+                        ]
+                      )
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("li", { staticClass: "nav-item" }, [
@@ -63384,115 +63721,11 @@ var staticRenderFns = [
                       attrs: { href: "/usermanagement" }
                     },
                     [
-                      _c("i", { staticClass: "nav-icon fas fa-th" }),
+                      _c("i", { staticClass: "nav-icon fa fa-search" }),
                       _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          "\n              User Management\n              "
-                        ),
-                        _c(
-                          "span",
-                          { staticClass: "right badge badge-danger" },
-                          [_vm._v("New")]
-                        )
-                      ])
+                      _c("p", [_vm._v("\n              Search\n            ")])
                     ]
                   )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/widgets.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "nav-icon fas fa-th" }),
-                      _vm._v(" "),
-                      _c("p", [
-                        _vm._v("\n              Widgets\n              "),
-                        _c(
-                          "span",
-                          { staticClass: "right badge badge-danger" },
-                          [_vm._v("New")]
-                        )
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item has-treeview" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "nav-icon fas fa-copy" }),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v("\n              Layout Options\n              "),
-                      _c("i", { staticClass: "fas fa-angle-left right" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "badge badge-info right" }, [
-                        _vm._v("6")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("ul", { staticClass: "nav nav-treeview" }, [
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          attrs: { href: "pages/layout/top-nav.html" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-circle nav-icon" }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Top Navigation")])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          attrs: { href: "pages/layout/top-nav-sidebar.html" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-circle nav-icon" }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Top Navigation + Sidebar")])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          attrs: { href: "pages/layout/collapsed-sidebar.html" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-circle nav-icon" }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Collapsed Sidebar")])
-                        ]
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item has-treeview" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "nav-icon fas fa-book" }),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v("\n              Pages\n              "),
-                      _c("i", { staticClass: "fas fa-angle-left right" })
-                    ])
-                  ])
                 ])
               ]
             )
@@ -66954,8 +67187,7 @@ var render = function() {
         _c(
           "button",
           {
-            staticClass:
-              "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3 pull-right",
+            staticClass: "fa-pull-right",
             on: {
               click: function($event) {
                 return _vm.openModal()
@@ -66964,6 +67196,114 @@ var render = function() {
           },
           [_vm._v("Add New Org")]
         ),
+        _vm._v(" "),
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h3", { staticClass: "card-title" }, [
+              _vm._v("Organization Details")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "table",
+              {
+                staticClass: "table table-bordered table-hover",
+                attrs: { id: "example2" }
+              },
+              [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", { staticClass: "px-4 py-2 w-20" }, [
+                      _vm._v("No.")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "px-4 py-2" }, [
+                      _vm._v("Organization Name")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "px-4 py-2" }, [_vm._v("Email")]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "px-4 py-2" }, [
+                      _vm._v("Cntact Number")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "px-4 py-2" }, [
+                      _vm._v("Action Date")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "th",
+                      {
+                        staticClass: "px-4 py-2 text-center",
+                        attrs: { colspan: "2" }
+                      },
+                      [_vm._v("Action")]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.data, function(row) {
+                    return _c("tr", [
+                      _c("td", { staticClass: "border px-4 py-2" }, [
+                        _vm._v(_vm._s(row.Id))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "border px-4 py-2" }, [
+                        _vm._v(_vm._s(row.org_name))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "border px-4 py-2" }, [
+                        _vm._v(_vm._s(row.Email))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "border px-4 py-2" }, [
+                        _vm._v(_vm._s(row.Contact))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "border px-4 py-2" }, [
+                        _vm._v(_vm._s(_vm._f("formatDate")(row.updated_at)))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "border px-4 py-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-block btn-primary",
+                            on: {
+                              click: function($event) {
+                                return _vm.editWindow(row)
+                              }
+                            }
+                          },
+                          [_vm._v("Edit")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "border px-4 py-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger btn-block",
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteRow(row.Id)
+                              }
+                            }
+                          },
+                          [_vm._v("Delete")]
+                        )
+                      ])
+                    ])
+                  }),
+                  0
+                )
+              ]
+            )
+          ])
+        ]),
         _vm._v(" "),
         _vm.isShow
           ? _c(
@@ -67414,117 +67754,7 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _c("h3", { staticClass: "card-title" }, [
-                  _vm._v("DataTable with minimal features & hover style")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "table",
-                  {
-                    staticClass: "table table-bordered table-hover",
-                    attrs: { id: "example2" }
-                  },
-                  [
-                    _c("thead", [
-                      _c("tr", [
-                        _c("th", { staticClass: "px-4 py-2 w-20" }, [
-                          _vm._v("No.")
-                        ]),
-                        _vm._v(" "),
-                        _c("th", { staticClass: "px-4 py-2" }, [
-                          _vm._v("Organization Name")
-                        ]),
-                        _vm._v(" "),
-                        _c("th", { staticClass: "px-4 py-2" }, [
-                          _vm._v("Email")
-                        ]),
-                        _vm._v(" "),
-                        _c("th", { staticClass: "px-4 py-2" }, [
-                          _vm._v("Cntact Number")
-                        ]),
-                        _vm._v(" "),
-                        _c("th", { staticClass: "px-4 py-2" }, [
-                          _vm._v("Action Date")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "th",
-                          {
-                            staticClass: "px-4 py-2 text-center",
-                            attrs: { colspan: "2" }
-                          },
-                          [_vm._v("Action")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.data, function(row) {
-                        return _c("tr", [
-                          _c("td", { staticClass: "border px-4 py-2" }, [
-                            _vm._v(_vm._s(row.Id))
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "border px-4 py-2" }, [
-                            _vm._v(_vm._s(row.org_name))
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "border px-4 py-2" }, [
-                            _vm._v(_vm._s(row.Email))
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "border px-4 py-2" }, [
-                            _vm._v(_vm._s(row.Contact))
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "border px-4 py-2" }, [
-                            _vm._v(_vm._s(_vm._f("formatDate")(row.updated_at)))
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "border px-4 py-2" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-block btn-primary",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.editWindow(row)
-                                  }
-                                }
-                              },
-                              [_vm._v("Edit")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "border px-4 py-2" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-danger btn-block",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.deleteRow(row.Id)
-                                  }
-                                }
-                              },
-                              [_vm._v("Delete")]
-                            )
-                          ])
-                        ])
-                      }),
-                      0
-                    )
-                  ]
-                )
-              ])
-            ])
-          ])
+          _c("div", { staticClass: "col-12" })
         ])
       ])
     ])
@@ -81759,6 +81989,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Layouts/footer.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/Layouts/footer.vue ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _footer_vue_vue_type_template_id_791b897f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./footer.vue?vue&type=template&id=791b897f& */ "./resources/js/Layouts/footer.vue?vue&type=template&id=791b897f&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _footer_vue_vue_type_template_id_791b897f___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _footer_vue_vue_type_template_id_791b897f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Layouts/footer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Layouts/footer.vue?vue&type=template&id=791b897f&":
+/*!************************************************************************!*\
+  !*** ./resources/js/Layouts/footer.vue?vue&type=template&id=791b897f& ***!
+  \************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_791b897f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./footer.vue?vue&type=template&id=791b897f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Layouts/footer.vue?vue&type=template&id=791b897f&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_791b897f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_791b897f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/Layouts/headnav.vue":
 /*!******************************************!*\
   !*** ./resources/js/Layouts/headnav.vue ***!
@@ -83206,6 +83489,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
 var app = document.getElementById('app');
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('headnav', __webpack_require__(/*! ./Layouts/headnav.vue */ "./resources/js/Layouts/headnav.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('sidenav', __webpack_require__(/*! ./Layouts/sidenav.vue */ "./resources/js/Layouts/sidenav.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('footer', __webpack_require__(/*! ./Layouts/footer.vue */ "./resources/js/Layouts/footer.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter('formatDate', function (value) {
   if (value) {
     return moment__WEBPACK_IMPORTED_MODULE_7___default()(String(value)).format('MM/DD/YYYY hh:mm:ss');

@@ -12,7 +12,6 @@ class OrgModel extends Model
     protected $table = 't_org_details';
     protected $fillable = [
         'org_name','village','Email','Contact'
-       
     ];
     
 }

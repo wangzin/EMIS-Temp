@@ -17,7 +17,42 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-12">
-                <button @click="openModal()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3 pull-right">Add New Org</button>
+                <button @click="openModal()" class="fa-pull-right">Add New Org</button>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Organization Details</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th class="px-4 py-2 w-20">No.</th>
+                            <th class="px-4 py-2">Organization Name</th>
+                            <th class="px-4 py-2">Email</th>
+                            <th class="px-4 py-2">Cntact Number</th>
+                            <th class="px-4 py-2">Action Date</th>
+                            <th class="px-4 py-2 text-center" colspan="2">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for='row in data'>
+                                <td class="border px-4 py-2">{{ row.Id }}</td>
+                                <td class="border px-4 py-2">{{ row.org_name }}</td>
+                                <td class="border px-4 py-2">{{ row.Email }}</td>
+                                <td class="border px-4 py-2">{{ row.Contact }}</td>
+                                <td class="border px-4 py-2">{{ row.updated_at | formatDate}}</td>
+                                <td class="border px-4 py-2" >
+                                    <button @click="editWindow(row)" class="btn btn-block btn-primary">Edit</button>
+                                </td>
+                                    <td class="border px-4 py-2" >
+                                    <button @click="deleteRow(row.Id)" class="btn btn-danger btn-block">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+                
                 <div class="card card-info" id="addForm" v-if="isShow">
                     <div class="card-header">
                         <h3 class="card-title">You are about to add new Organization</h3>
@@ -85,40 +120,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">DataTable with minimal features & hover style</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="example2" class="table table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th class="px-4 py-2 w-20">No.</th>
-                                <th class="px-4 py-2">Organization Name</th>
-                                <th class="px-4 py-2">Email</th>
-                                <th class="px-4 py-2">Cntact Number</th>
-                                <th class="px-4 py-2">Action Date</th>
-                                <th class="px-4 py-2 text-center" colspan="2">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for='row in data'>
-                                    <td class="border px-4 py-2">{{ row.Id }}</td>
-                                    <td class="border px-4 py-2">{{ row.org_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.Email }}</td>
-                                    <td class="border px-4 py-2">{{ row.Contact }}</td>
-                                    <td class="border px-4 py-2">{{ row.updated_at | formatDate}}</td>
-                                    <td class="border px-4 py-2" >
-                                        <button @click="editWindow(row)" class="btn btn-block btn-primary">Edit</button>
-                                    </td>
-                                     <td class="border px-4 py-2" >
-                                        <button @click="deleteRow(row.Id)" class="btn btn-danger btn-block">Delete</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            </table>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

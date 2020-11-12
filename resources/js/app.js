@@ -42,6 +42,7 @@ const app = document.getElementById('app');
 
 Vue.component('headnav', require('./Layouts/headnav.vue').default);
 Vue.component('sidenav', require('./Layouts/sidenav.vue').default);
+Vue.component('footer', require('./Layouts/footer.vue').default);  
 
 Vue.filter('formatDate', function(value) {
     if (value) { 
