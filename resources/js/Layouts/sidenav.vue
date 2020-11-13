@@ -37,8 +37,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview" id="organizationlinksection">
+            <a href="#" class="nav-link" id="organizationlink">
               <i class="nav-icon fas fa-home"></i>
               <p>
                  Organization
@@ -47,7 +47,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/organizationIndex" class="nav-link">
+                <a href="/organizationIndex" class="nav-link" id="schoolLink">
                   <i class="fa fa-angle-double-right nav-icon"></i>
                   <p>School</p>
                 </a>

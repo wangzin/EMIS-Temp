@@ -13,6 +13,9 @@ class UserController extends Controller
         $data = UserDetails::all();  
         return Inertia::render('usermanagement/Usermanagement', ['data' => $data]); 
     }
+    public function newogranozation(){
+        return Inertia::render('org/neworgform'); 
+    }
     public function saveuser(Request $request)
     {
         Validator::make($request->all(), [

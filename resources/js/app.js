@@ -42,7 +42,7 @@ const app = document.getElementById('app');
 
 Vue.component('headnav', require('./Layouts/headnav.vue').default);
 Vue.component('sidenav', require('./Layouts/sidenav.vue').default);
-Vue.component('footer', require('./Layouts/footer.vue').default);  
+Vue.component('footercomponent', require('./Layouts/footer.vue').default);  
 
 Vue.filter('formatDate', function(value) {
     if (value) { 
@@ -51,12 +51,12 @@ Vue.filter('formatDate', function(value) {
   });
 new Vue({
     render: (h) =>
-        h(InertiaApp, {
-            props: {
-                initialPage: JSON.parse(app.dataset.page),
-                resolveComponent: (name) => require(`./Pages/${name}`).default,
-            },
-        }),
+    h(InertiaApp, {
+        props: {
+            initialPage: JSON.parse(app.dataset.page),
+            resolveComponent: (name) => require(`./Pages/${name}`).default,
+        },
+    }),
 }).$mount(app);
 import moment from 'moment'
 

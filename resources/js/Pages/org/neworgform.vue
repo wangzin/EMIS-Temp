@@ -4,12 +4,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Dashboard</h1>
+                        <h1 class="m-0 text-dark">Home</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">
-                                <a href="/newogranozation"><button class="btn btn-primary"><i class="fa fa-plus"></i> Apply New Organization</button></a>
+                                New Organization Form
                             </li>
                         </ol>
                     </div>
@@ -18,46 +18,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-12">
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Organization Details</h3>
-                    </div>
-                    <div class="card-body">
-                        <table id="example2" class="table table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th class="px-4 py-2 w-20">No.</th>
-                            <th class="px-4 py-2">Organization Name</th>
-                            <th class="px-4 py-2">Email</th>
-                            <th class="px-4 py-2">Cntact Number</th>
-                            <th class="px-4 py-2">Action Date</th>
-                            <th class="px-4 py-2 text-center" colspan="2">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for='row in data'>
-                                <td class="border px-4 py-2">{{ row.Id }}</td>
-                                <td class="border px-4 py-2">{{ row.org_name }}</td>
-                                <td class="border px-4 py-2">{{ row.Email }}</td>
-                                <td class="border px-4 py-2">{{ row.Contact }}</td>
-                                <td class="border px-4 py-2">{{ row.updated_at | formatDate}}</td>
-                                <td class="border px-4 py-2" >
-                                    <button @click="editWindow(row)" class="btn btn-block btn-primary">Edit</button>
-                                </td>
-                                    <td class="border px-4 py-2" >
-                                    <button @click="deleteRow(row.Id)" class="btn btn-danger btn-block">Delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="card card-info" id="addForm" v-if="isShow">
-                    <div class="card-header">
-                        <h3 class="card-title">You are about to add new Organization</h3>
-                    </div>
+                <div class="card card-info" id="addForm">
                     <form>
                         <div class="card-body">
                             <div class="form-group row">
@@ -68,7 +29,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <label>Location Dzongkhag:</label>
-                                    <select v-model="form.dzongkhag" @click="remove_err('error_dzongkhag')" @change="getgewogvillage('gewog')" id="dzongkhagId" class="form-control">
+                                    <select v-model="form.dzongkhag" @click="remove_err('error_dzongkhag')" @change="getgewogvillage('gewog')" id="dzongkhagId" class="form-control select2">
                                         <option selected>-- Select Dzongkhag --</option>
                                         <option v-for="item in dzongkhagList" :key="item.Dzongkhag_Id" :value="item.Dzongkhag_Id">{{ item.Dzongkhag_Name }}</option>
                                     </select>
@@ -106,11 +67,8 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <button wire:click.prevent="store()" type="button" class="btn btn-success" v-show="!editMode" @click="save(form)">
+                                <button wire:click.prevent="store()" type="button" class="btn btn-success" @click="save(form)">
                                     Save
-                                </button>
-                                <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5" v-show="editMode" @click="update(form)">
-                                    Update
                                 </button>
                                 <button @click="closeModal()" type="button" class="btn btn-default">
                                     Cancel
@@ -118,11 +76,6 @@
                             </div>
                         </div>
                     </form>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        
-                    </div>
                 </div>
             </div>
         </div>
@@ -137,14 +90,10 @@
         components: {
             AppLayout,
             Welcome,
-            
         },
         props: ['data', 'errors'],
         data() {
             return {
-                editMode: false,
-                isOpen: false,
-                isShow:false,
                 dzongkhagList : {},
                 gewogList : {},
                 villageList : {},
@@ -177,18 +126,10 @@
                     .catch(error => console.log(error));
                 }
             },
-            // applyforneworg: function () {
-            //     this.isShow=true;
-            // },
-             editWindow(user){ 
-                this.reset();
-                this.isShow = true;
-                this.form.fill(user)
-            },
+            
             closeModal: function () {
                 this.isShow=false;
                 this.reset();
-                this.editMode=false;
             },
             reset: function () {
                 this.form = {
@@ -206,7 +147,6 @@
                     this.$inertia.post('/organizationIndex', data)
                     this.reset();
                     this.isShow=false;
-                    this.editMode = false;
                     this.$Progress.end();
                 }
                 

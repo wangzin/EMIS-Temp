@@ -26,5 +26,6 @@ Route::post('/saveuser', [UserController::class,'saveuser'])->name('saveuser');
 Route::get('/getdzongkhag', [UserController::class,'getdzongkhaglist'])->name('getdzongkhag');
 Route::get('/gewog/{id}', [UserController::class,'gewoglist'])->name('gewog');
 Route::get('/village/{id}', [UserController::class,'getvillagelist'])->name('village');
+Route::get('/newogranozation', [UserController::class,'newogranozation'])->name('newogranozation'); 
 
 Route::resource('/organizationIndex', OrgController::class); 

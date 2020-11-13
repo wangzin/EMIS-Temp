@@ -5107,6 +5107,257 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/org/neworgform.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/org/neworgform.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/Welcome */ "./resources/js/Jetstream/Welcome.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Welcome: _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: ['data', 'errors'],
+  data: function data() {
+    return {
+      dzongkhagList: {},
+      gewogList: {},
+      villageList: {},
+      form: {
+        org_name: null,
+        dzongkhag: null,
+        gewog: null,
+        village: null,
+        Village: null,
+        Email: null,
+        Contact: null
+      }
+    };
+  },
+  methods: {
+    loaddzongkhag: function loaddzongkhag() {
+      var _this = this;
+
+      axios.get('/getdzongkhag').then(function (response) {
+        return _this.dzongkhagList = response.data;
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    getgewogvillage: function getgewogvillage(type) {
+      var _this2 = this;
+
+      if (type == 'gewog') {
+        axios.get('/gewog/' + $('#dzongkhagId').val()).then(function (response) {
+          return _this2.gewogList = response.data;
+        })["catch"](function (errot) {
+          return console.log(error);
+        });
+      } else {
+        axios.get('/village/' + $('#gewogid').val()).then(function (response) {
+          return _this2.villageList = response.data;
+        })["catch"](function (error) {
+          return console.log(error);
+        });
+      }
+    },
+    closeModal: function closeModal() {
+      this.isShow = false;
+      this.reset();
+    },
+    reset: function reset() {
+      this.form = {
+        org_name: null,
+        dzongkhag: null,
+        gewog: null,
+        village: null,
+        Email: null,
+        Contact: null
+      };
+    },
+    save: function save(data) {
+      if (this.validateform()) {
+        this.$Progress.start();
+        this.$inertia.post('/organizationIndex', data);
+        this.reset();
+        this.isShow = false;
+        this.$Progress.end();
+      }
+    },
+    deleteRow: function deleteRow(id) {
+      var _this3 = this;
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        if (result.value) {
+          //Send Request to server
+          _this3.$inertia["delete"]('/organizationIndex/' + id).then(function (response) {
+            alert(response.text);
+            Swal.fire('Deleted!', 'User deleted successfully', 'success');
+          })["catch"](function () {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+              footer: '<a href>Why do I have this issue?</a>'
+            });
+          });
+        }
+      });
+    },
+    validateform: function validateform() {
+      var retuentype = true;
+
+      if (this.form.org_name == null) {
+        $('#error_orgname').html('Please provide org name');
+        retuentype = false;
+      }
+
+      if (this.form.dzongkhag == null) {
+        $('#error_dzongkhag').html('Please select dzongkhag');
+        retuentype = false;
+      }
+
+      if (this.form.gewog == null) {
+        $('#error_gewog').html('Please select gewog');
+        retuentype = false;
+      }
+
+      if (this.form.village == null) {
+        $('#error_village').html('Please select village');
+        retuentype = false;
+      }
+
+      if (this.form.Email == null) {
+        $('#error_email').html('Please provide email');
+        retuentype = false;
+      }
+
+      if (this.form.Contact == null) {
+        $('#error_contact').html('Please provide contact number');
+        retuentype = false;
+      }
+
+      if (this.form.Email == null) {
+        $('#error_email').html('Please provide email');
+        retuentype = false;
+      }
+
+      return retuentype;
+    },
+    remove_err: function remove_err(errorid) {
+      $('#' + errorid).html('');
+    }
+  },
+  mounted: function mounted() {
+    this.loaddzongkhag();
+    $('#organizationlinksection').addClass('menu-open');
+    $('#organizationlink').addClass('nav-link active');
+    $('#schoolLink').addClass('active');
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/org/orgdetails.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/org/orgdetails.vue?vue&type=script&lang=js& ***!
@@ -5118,6 +5369,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/Welcome */ "./resources/js/Jetstream/Welcome.vue");
+//
 //
 //
 //
@@ -5302,9 +5554,9 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    openModal: function openModal() {
-      this.isShow = true;
-    },
+    // applyforneworg: function () {
+    //     this.isShow=true;
+    // },
     editWindow: function editWindow(user) {
       this.reset();
       this.isShow = true;
@@ -5409,6 +5661,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.loaddzongkhag();
+    $('#organizationlinksection').addClass('menu-open');
+    $('#organizationlink').addClass('nav-link active');
+    $('#schoolLink').addClass('active');
   }
 });
 
@@ -62844,30 +63099,35 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "min-h-screen bg-gray-100" }, [
-    _c("body", { staticClass: "hold-transition sidebar-mini layout-fixed" }, [
-      _c(
-        "div",
-        { staticClass: "wrapper" },
-        [
-          _c("headnav"),
-          _vm._v(" "),
-          _c("sidenav"),
-          _vm._v(" "),
-          _c("vue-progress-bar"),
-          _vm._v(" "),
-          _c("div", { staticClass: "content-wrapper" }, [
-            _c("section", { staticClass: "content" }, [
-              _c("div", { staticClass: "container-fluid" }, [
-                _c("main", [_vm._t("default")], 2)
+    _c(
+      "body",
+      { staticClass: "hold-transition sidebar-mini layout-fixed" },
+      [
+        _c(
+          "div",
+          { staticClass: "wrapper" },
+          [
+            _c("headnav"),
+            _vm._v(" "),
+            _c("sidenav"),
+            _vm._v(" "),
+            _c("vue-progress-bar"),
+            _vm._v(" "),
+            _c("div", { staticClass: "content-wrapper" }, [
+              _c("section", { staticClass: "content" }, [
+                _c("div", { staticClass: "container-fluid" }, [
+                  _c("main", [_vm._t("default")], 2)
+                ])
               ])
             ])
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("footer")
-    ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("footercomponent")
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -62901,16 +63161,16 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("footer", { staticClass: "main-footer" }, [
       _c("strong", [
-        _vm._v("Copyright © 2014-2019 "),
-        _c("a", { attrs: { href: "http://adminlte.io" } }, [
-          _vm._v("AdminLTE link")
+        _vm._v("Copyright © Nov, 2020 "),
+        _c("a", { attrs: { href: "https://www.moea.gov.bt/" } }, [
+          _vm._v("Ministry Of Education")
         ]),
         _vm._v(".")
       ]),
       _vm._v("\n    All rights reserved.\n    "),
       _c("div", { staticClass: "float-right d-none d-sm-inline-block" }, [
         _c("b", [_vm._v("Version")]),
-        _vm._v(" 3.0.5\n    ")
+        _vm._v(" 3.0\n    ")
       ])
     ])
   }
@@ -63549,86 +63809,105 @@ var staticRenderFns = [
                   ])
                 ]),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-item has-treeview" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "nav-icon fas fa-home" }),
+                _c(
+                  "li",
+                  {
+                    staticClass: "nav-item has-treeview",
+                    attrs: { id: "organizationlinksection" }
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { href: "#", id: "organizationlink" }
+                      },
+                      [
+                        _c("i", { staticClass: "nav-icon fas fa-home" }),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "\n               Organization\n              "
+                          ),
+                          _c("i", { staticClass: "fas fa-angle-left right" })
+                        ])
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("p", [
-                      _vm._v("\n               Organization\n              "),
-                      _c("i", { staticClass: "fas fa-angle-left right" })
+                    _c("ul", { staticClass: "nav nav-treeview" }, [
+                      _c("li", { staticClass: "nav-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: {
+                              href: "/organizationIndex",
+                              id: "schoolLink"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fa fa-angle-double-right nav-icon"
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("School")])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "nav-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { href: "/aclhome" }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fa fa-angle-double-right nav-icon"
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_vm._v(" ECR")])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "nav-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { href: "/masterManagement" }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fa fa-angle-double-right nav-icon"
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("ECCD")])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "nav-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { href: "/masterManagement" }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fa fa-angle-double-right nav-icon"
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Others")])
+                          ]
+                        )
+                      ])
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("ul", { staticClass: "nav nav-treeview" }, [
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          attrs: { href: "/organizationIndex" }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-angle-double-right nav-icon"
-                          }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("School")])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          attrs: { href: "/aclhome" }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-angle-double-right nav-icon"
-                          }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(" ECR")])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          attrs: { href: "/masterManagement" }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-angle-double-right nav-icon"
-                          }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("ECCD")])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          attrs: { href: "/masterManagement" }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-angle-double-right nav-icon"
-                          }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Others")])
-                        ]
-                      )
-                    ])
-                  ])
-                ]),
+                  ]
+                ),
                 _vm._v(" "),
                 _c("li", { staticClass: "nav-item has-treeview" }, [
                   _c(
@@ -67144,6 +67423,435 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/org/neworgform.vue?vue&type=template&id=f15b5f48&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/org/neworgform.vue?vue&type=template&id=f15b5f48& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("app-layout", [
+    _c("div", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", { staticClass: "m-0 text-dark" }, [_vm._v("Home")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
+              _c("li", { staticClass: "breadcrumb-item" }, [
+                _vm._v(
+                  "\n                            New Organization Form\n                        "
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-12 col-12" }, [
+        _c("div", { staticClass: "card card-info", attrs: { id: "addForm" } }, [
+          _c("form", [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "form-group row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" },
+                  [
+                    _c("label", [_vm._v("Organization Name:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.org_name,
+                          expression: "form.org_name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "exampleInputEmail1",
+                        placeholder: "Organization Name"
+                      },
+                      domProps: { value: _vm.form.org_name },
+                      on: {
+                        click: function($event) {
+                          return _vm.remove_err("error_orgname")
+                        },
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "org_name", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "text-danger",
+                      attrs: { id: "error_orgname" }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" },
+                  [
+                    _c("label", [_vm._v("Location Dzongkhag:")]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.dzongkhag,
+                            expression: "form.dzongkhag"
+                          }
+                        ],
+                        staticClass: "form-control select2",
+                        attrs: { id: "dzongkhagId" },
+                        on: {
+                          click: function($event) {
+                            return _vm.remove_err("error_dzongkhag")
+                          },
+                          change: [
+                            function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "dzongkhag",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                            function($event) {
+                              return _vm.getgewogvillage("gewog")
+                            }
+                          ]
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { selected: "" } }, [
+                          _vm._v("-- Select Dzongkhag --")
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.dzongkhagList, function(item) {
+                          return _c(
+                            "option",
+                            {
+                              key: item.Dzongkhag_Id,
+                              domProps: { value: item.Dzongkhag_Id }
+                            },
+                            [_vm._v(_vm._s(item.Dzongkhag_Name))]
+                          )
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "text-danger",
+                      attrs: { id: "error_dzongkhag" }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" },
+                  [
+                    _c("label", [_vm._v("Location Gewog:")]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.gewog,
+                            expression: "form.gewog"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { id: "gewogid" },
+                        on: {
+                          change: [
+                            function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "gewog",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                            function($event) {
+                              return _vm.getgewogvillage("village")
+                            }
+                          ],
+                          click: function($event) {
+                            return _vm.remove_err("error_gewog")
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { selected: "" } }, [
+                          _vm._v("-- Select Gewog --")
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.gewogList, function(item) {
+                          return _c(
+                            "option",
+                            {
+                              key: item.Gewog_Id,
+                              domProps: { value: item.Gewog_Id }
+                            },
+                            [_vm._v(_vm._s(item.Gewog_Name))]
+                          )
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "text-danger",
+                      attrs: { id: "error_gewog" }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" },
+                  [
+                    _c("label", [_vm._v("Location Village:")]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.village,
+                            expression: "form.village"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          click: function($event) {
+                            return _vm.remove_err("error_village")
+                          },
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.form,
+                              "village",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { selected: "" } }, [
+                          _vm._v("-- Select Village --")
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.villageList, function(item) {
+                          return _c(
+                            "option",
+                            {
+                              key: item.Village_Serial_No,
+                              domProps: { value: item.Village_Serial_No }
+                            },
+                            [_vm._v(_vm._s(item.Village_Name))]
+                          )
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "text-danger",
+                      attrs: { id: "error_village" }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" },
+                  [
+                    _c("label", [_vm._v("Email:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.Email,
+                          expression: "form.Email"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", placeholder: "Email" },
+                      domProps: { value: _vm.form.Email },
+                      on: {
+                        click: function($event) {
+                          return _vm.remove_err("error_email")
+                        },
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "Email", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "text-danger",
+                      attrs: { id: "error_email" }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" },
+                  [
+                    _c("label", [_vm._v("Contact Number:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.Contact,
+                          expression: "form.Contact"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "number", placeholder: "Contact Numer" },
+                      domProps: { value: _vm.form.Contact },
+                      on: {
+                        click: function($event) {
+                          return _vm.remove_err("error_contact")
+                        },
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "Contact", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "text-danger",
+                      attrs: { id: "error_contact" }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success",
+                    attrs: { "wire:click.prevent": "store()", type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.save(_vm.form)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                                Save\n                            "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-default",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.closeModal()
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                                Cancel\n                            "
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/org/orgdetails.vue?vue&type=template&id=75f48432&":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/org/orgdetails.vue?vue&type=template&id=75f48432& ***!
@@ -67170,11 +67878,12 @@ var render = function() {
           _c("div", { staticClass: "col-sm-6" }, [
             _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
               _c("li", { staticClass: "breadcrumb-item" }, [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "breadcrumb-item active" }, [
-                _vm._v("Organization ")
+                _c("a", { attrs: { href: "/newogranozation" } }, [
+                  _c("button", { staticClass: "btn btn-primary" }, [
+                    _c("i", { staticClass: "fa fa-plus" }),
+                    _vm._v(" Apply New Organization")
+                  ])
+                ])
               ])
             ])
           ])
@@ -67184,19 +67893,6 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-lg-12 col-12" }, [
-        _c(
-          "button",
-          {
-            staticClass: "fa-pull-right",
-            on: {
-              click: function($event) {
-                return _vm.openModal()
-              }
-            }
-          },
-          [_vm._v("Add New Org")]
-        ),
-        _vm._v(" "),
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header" }, [
             _c("h3", { staticClass: "card-title" }, [
@@ -82218,6 +82914,8 @@ var map = {
 	"./Teams/TeamMemberManager.vue": "./resources/js/Pages/Teams/TeamMemberManager.vue",
 	"./Teams/UpdateTeamNameForm": "./resources/js/Pages/Teams/UpdateTeamNameForm.vue",
 	"./Teams/UpdateTeamNameForm.vue": "./resources/js/Pages/Teams/UpdateTeamNameForm.vue",
+	"./org/neworgform": "./resources/js/Pages/org/neworgform.vue",
+	"./org/neworgform.vue": "./resources/js/Pages/org/neworgform.vue",
 	"./org/orgdetails": "./resources/js/Pages/org/orgdetails.vue",
 	"./org/orgdetails.vue": "./resources/js/Pages/org/orgdetails.vue",
 	"./usermanagement/Usermanagement": "./resources/js/Pages/usermanagement/Usermanagement.vue",
@@ -83281,6 +83979,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/org/neworgform.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/Pages/org/neworgform.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _neworgform_vue_vue_type_template_id_f15b5f48___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./neworgform.vue?vue&type=template&id=f15b5f48& */ "./resources/js/Pages/org/neworgform.vue?vue&type=template&id=f15b5f48&");
+/* harmony import */ var _neworgform_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./neworgform.vue?vue&type=script&lang=js& */ "./resources/js/Pages/org/neworgform.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _neworgform_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _neworgform_vue_vue_type_template_id_f15b5f48___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _neworgform_vue_vue_type_template_id_f15b5f48___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/org/neworgform.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/org/neworgform.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/Pages/org/neworgform.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_neworgform_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./neworgform.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/org/neworgform.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_neworgform_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/org/neworgform.vue?vue&type=template&id=f15b5f48&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Pages/org/neworgform.vue?vue&type=template&id=f15b5f48& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_neworgform_vue_vue_type_template_id_f15b5f48___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./neworgform.vue?vue&type=template&id=f15b5f48& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/org/neworgform.vue?vue&type=template&id=f15b5f48&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_neworgform_vue_vue_type_template_id_f15b5f48___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_neworgform_vue_vue_type_template_id_f15b5f48___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/org/orgdetails.vue":
 /*!***********************************************!*\
   !*** ./resources/js/Pages/org/orgdetails.vue ***!
@@ -83489,7 +84256,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
 var app = document.getElementById('app');
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('headnav', __webpack_require__(/*! ./Layouts/headnav.vue */ "./resources/js/Layouts/headnav.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('sidenav', __webpack_require__(/*! ./Layouts/sidenav.vue */ "./resources/js/Layouts/sidenav.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('footer', __webpack_require__(/*! ./Layouts/footer.vue */ "./resources/js/Layouts/footer.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('footercomponent', __webpack_require__(/*! ./Layouts/footer.vue */ "./resources/js/Layouts/footer.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter('formatDate', function (value) {
   if (value) {
     return moment__WEBPACK_IMPORTED_MODULE_7___default()(String(value)).format('MM/DD/YYYY hh:mm:ss');

@@ -15,7 +15,7 @@
         </section>
         </div>
       </div>
-       <footer />
+       <footercomponent />
     </body>
   </div>
 </template>
