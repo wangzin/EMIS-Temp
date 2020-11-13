@@ -5202,6 +5202,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -67462,384 +67497,619 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-lg-12 col-12" }, [
         _c("div", { staticClass: "card card-info", attrs: { id: "addForm" } }, [
-          _c("form", [
-            _c("div", { staticClass: "card-body" }, [
-              _c("div", { staticClass: "form-group row" }, [
+          _c(
+            "div",
+            { staticClass: "card card-primary card-outline card-outline-tabs" },
+            [
+              _c("div", { staticClass: "card-header p-0 border-bottom-0" }, [
                 _c(
-                  "div",
-                  { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" },
-                  [
-                    _c("label", [_vm._v("Organization Name:")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.org_name,
-                          expression: "form.org_name"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        id: "exampleInputEmail1",
-                        placeholder: "Organization Name"
-                      },
-                      domProps: { value: _vm.form.org_name },
-                      on: {
-                        click: function($event) {
-                          return _vm.remove_err("error_orgname")
-                        },
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "org_name", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "text-danger",
-                      attrs: { id: "error_orgname" }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" },
-                  [
-                    _c("label", [_vm._v("Location Dzongkhag:")]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.dzongkhag,
-                            expression: "form.dzongkhag"
-                          }
-                        ],
-                        staticClass: "form-control select2",
-                        attrs: { id: "dzongkhagId" },
-                        on: {
-                          click: function($event) {
-                            return _vm.remove_err("error_dzongkhag")
-                          },
-                          change: [
-                            function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.form,
-                                "dzongkhag",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            },
-                            function($event) {
-                              return _vm.getgewogvillage("gewog")
-                            }
-                          ]
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { selected: "" } }, [
-                          _vm._v("-- Select Dzongkhag --")
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.dzongkhagList, function(item) {
-                          return _c(
-                            "option",
-                            {
-                              key: item.Dzongkhag_Id,
-                              domProps: { value: item.Dzongkhag_Id }
-                            },
-                            [_vm._v(_vm._s(item.Dzongkhag_Name))]
-                          )
-                        })
-                      ],
-                      2
-                    ),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "text-danger",
-                      attrs: { id: "error_dzongkhag" }
-                    })
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
-                _c(
-                  "div",
-                  { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" },
-                  [
-                    _c("label", [_vm._v("Location Gewog:")]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.gewog,
-                            expression: "form.gewog"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { id: "gewogid" },
-                        on: {
-                          change: [
-                            function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.form,
-                                "gewog",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            },
-                            function($event) {
-                              return _vm.getgewogvillage("village")
-                            }
-                          ],
-                          click: function($event) {
-                            return _vm.remove_err("error_gewog")
-                          }
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { selected: "" } }, [
-                          _vm._v("-- Select Gewog --")
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.gewogList, function(item) {
-                          return _c(
-                            "option",
-                            {
-                              key: item.Gewog_Id,
-                              domProps: { value: item.Gewog_Id }
-                            },
-                            [_vm._v(_vm._s(item.Gewog_Name))]
-                          )
-                        })
-                      ],
-                      2
-                    ),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "text-danger",
-                      attrs: { id: "error_gewog" }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" },
-                  [
-                    _c("label", [_vm._v("Location Village:")]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.village,
-                            expression: "form.village"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        on: {
-                          click: function($event) {
-                            return _vm.remove_err("error_village")
-                          },
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.form,
-                              "village",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          }
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { selected: "" } }, [
-                          _vm._v("-- Select Village --")
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.villageList, function(item) {
-                          return _c(
-                            "option",
-                            {
-                              key: item.Village_Serial_No,
-                              domProps: { value: item.Village_Serial_No }
-                            },
-                            [_vm._v(_vm._s(item.Village_Name))]
-                          )
-                        })
-                      ],
-                      2
-                    ),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "text-danger",
-                      attrs: { id: "error_village" }
-                    })
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
-                _c(
-                  "div",
-                  { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" },
-                  [
-                    _c("label", [_vm._v("Email:")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.Email,
-                          expression: "form.Email"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text", placeholder: "Email" },
-                      domProps: { value: _vm.form.Email },
-                      on: {
-                        click: function($event) {
-                          return _vm.remove_err("error_email")
-                        },
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "Email", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "text-danger",
-                      attrs: { id: "error_email" }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" },
-                  [
-                    _c("label", [_vm._v("Contact Number:")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.Contact,
-                          expression: "form.Contact"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "number", placeholder: "Contact Numer" },
-                      domProps: { value: _vm.form.Contact },
-                      on: {
-                        click: function($event) {
-                          return _vm.remove_err("error_contact")
-                        },
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "Contact", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "text-danger",
-                      attrs: { id: "error_contact" }
-                    })
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
-                _c(
-                  "button",
+                  "ul",
                   {
-                    staticClass: "btn btn-success",
-                    attrs: { "wire:click.prevent": "store()", type: "button" },
-                    on: {
-                      click: function($event) {
-                        return _vm.save(_vm.form)
-                      }
-                    }
+                    staticClass: "nav nav-tabs",
+                    attrs: { id: "custom-tabs-four-tab", role: "tablist" }
                   },
                   [
-                    _vm._v(
-                      "\n                                Save\n                            "
-                    )
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link active",
+                          attrs: {
+                            id: "custom-tabs-four-home-tab",
+                            "data-toggle": "pill",
+                            href: "#custom-tabs-four-home",
+                            role: "tab",
+                            "aria-controls": "custom-tabs-four-home",
+                            "aria-selected": "true"
+                          }
+                        },
+                        [_vm._v("Basic Details")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: {
+                            id: "custom-tabs-four-profile-tab",
+                            "data-toggle": "pill",
+                            href: "#custom-tabs-four-profile",
+                            role: "tab",
+                            "aria-controls": "custom-tabs-four-profile",
+                            "aria-selected": "false"
+                          }
+                        },
+                        [_vm._v("Infracture")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: {
+                            id: "custom-tabs-four-messages-tab",
+                            "data-toggle": "pill",
+                            href: "#custom-tabs-four-messages",
+                            role: "tab",
+                            "aria-controls": "custom-tabs-four-messages",
+                            "aria-selected": "false"
+                          }
+                        },
+                        [_vm._v("Wash Facilities")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: {
+                            id: "custom-tabs-four-settings-tab",
+                            "data-toggle": "pill",
+                            href: "#custom-tabs-four-settings",
+                            role: "tab",
+                            "aria-controls": "custom-tabs-four-settings",
+                            "aria-selected": "false"
+                          }
+                        },
+                        [_vm._v("SAP")]
+                      )
+                    ])
                   ]
-                ),
-                _vm._v(" "),
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
                 _c(
-                  "button",
+                  "div",
                   {
-                    staticClass: "btn btn-default",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        return _vm.closeModal()
-                      }
-                    }
+                    staticClass: "tab-content",
+                    attrs: { id: "custom-tabs-four-tabContent" }
                   },
                   [
-                    _vm._v(
-                      "\n                                Cancel\n                            "
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade show active",
+                        attrs: {
+                          id: "custom-tabs-four-home",
+                          role: "tabpanel",
+                          "aria-labelledby": "custom-tabs-four-home-tab"
+                        }
+                      },
+                      [
+                        _c("form", [
+                          _c("div", { staticClass: "card-body" }, [
+                            _c("div", { staticClass: "form-group row" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "col-lg-6 col-md-6 col-sm-6 col-xs-12"
+                                },
+                                [
+                                  _c("label", [_vm._v("Organization Name:")]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.org_name,
+                                        expression: "form.org_name"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      type: "text",
+                                      id: "exampleInputEmail1",
+                                      placeholder: "Organization Name"
+                                    },
+                                    domProps: { value: _vm.form.org_name },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.remove_err("error_orgname")
+                                      },
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "org_name",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", {
+                                    staticClass: "text-danger",
+                                    attrs: { id: "error_orgname" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "col-lg-6 col-md-6 col-sm-6 col-xs-12"
+                                },
+                                [
+                                  _c("label", [_vm._v("Location Dzongkhag:")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.dzongkhag,
+                                          expression: "form.dzongkhag"
+                                        }
+                                      ],
+                                      staticClass: "form-control select2",
+                                      attrs: { id: "dzongkhagId" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.remove_err(
+                                            "error_dzongkhag"
+                                          )
+                                        },
+                                        change: [
+                                          function($event) {
+                                            var $$selectedVal = Array.prototype.filter
+                                              .call(
+                                                $event.target.options,
+                                                function(o) {
+                                                  return o.selected
+                                                }
+                                              )
+                                              .map(function(o) {
+                                                var val =
+                                                  "_value" in o
+                                                    ? o._value
+                                                    : o.value
+                                                return val
+                                              })
+                                            _vm.$set(
+                                              _vm.form,
+                                              "dzongkhag",
+                                              $event.target.multiple
+                                                ? $$selectedVal
+                                                : $$selectedVal[0]
+                                            )
+                                          },
+                                          function($event) {
+                                            return _vm.getgewogvillage("gewog")
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        { attrs: { selected: "" } },
+                                        [_vm._v("-- Select Dzongkhag --")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.dzongkhagList, function(item) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: item.Dzongkhag_Id,
+                                            domProps: {
+                                              value: item.Dzongkhag_Id
+                                            }
+                                          },
+                                          [_vm._v(_vm._s(item.Dzongkhag_Name))]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  ),
+                                  _vm._v(" "),
+                                  _c("span", {
+                                    staticClass: "text-danger",
+                                    attrs: { id: "error_dzongkhag" }
+                                  })
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "form-group row" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "col-lg-6 col-md-6 col-sm-6 col-xs-12"
+                                },
+                                [
+                                  _c("label", [_vm._v("Location Gewog:")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.gewog,
+                                          expression: "form.gewog"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: { id: "gewogid" },
+                                      on: {
+                                        change: [
+                                          function($event) {
+                                            var $$selectedVal = Array.prototype.filter
+                                              .call(
+                                                $event.target.options,
+                                                function(o) {
+                                                  return o.selected
+                                                }
+                                              )
+                                              .map(function(o) {
+                                                var val =
+                                                  "_value" in o
+                                                    ? o._value
+                                                    : o.value
+                                                return val
+                                              })
+                                            _vm.$set(
+                                              _vm.form,
+                                              "gewog",
+                                              $event.target.multiple
+                                                ? $$selectedVal
+                                                : $$selectedVal[0]
+                                            )
+                                          },
+                                          function($event) {
+                                            return _vm.getgewogvillage(
+                                              "village"
+                                            )
+                                          }
+                                        ],
+                                        click: function($event) {
+                                          return _vm.remove_err("error_gewog")
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        { attrs: { selected: "" } },
+                                        [_vm._v("-- Select Gewog --")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.gewogList, function(item) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: item.Gewog_Id,
+                                            domProps: { value: item.Gewog_Id }
+                                          },
+                                          [_vm._v(_vm._s(item.Gewog_Name))]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  ),
+                                  _vm._v(" "),
+                                  _c("span", {
+                                    staticClass: "text-danger",
+                                    attrs: { id: "error_gewog" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "col-lg-6 col-md-6 col-sm-6 col-xs-12"
+                                },
+                                [
+                                  _c("label", [_vm._v("Location Village:")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.village,
+                                          expression: "form.village"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.remove_err("error_village")
+                                        },
+                                        change: function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.$set(
+                                            _vm.form,
+                                            "village",
+                                            $event.target.multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        { attrs: { selected: "" } },
+                                        [_vm._v("-- Select Village --")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.villageList, function(item) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: item.Village_Serial_No,
+                                            domProps: {
+                                              value: item.Village_Serial_No
+                                            }
+                                          },
+                                          [_vm._v(_vm._s(item.Village_Name))]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  ),
+                                  _vm._v(" "),
+                                  _c("span", {
+                                    staticClass: "text-danger",
+                                    attrs: { id: "error_village" }
+                                  })
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "form-group row" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "col-lg-6 col-md-6 col-sm-6 col-xs-12"
+                                },
+                                [
+                                  _c("label", [_vm._v("Email:")]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.Email,
+                                        expression: "form.Email"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Email"
+                                    },
+                                    domProps: { value: _vm.form.Email },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.remove_err("error_email")
+                                      },
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "Email",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", {
+                                    staticClass: "text-danger",
+                                    attrs: { id: "error_email" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "col-lg-6 col-md-6 col-sm-6 col-xs-12"
+                                },
+                                [
+                                  _c("label", [_vm._v("Contact Number:")]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.Contact,
+                                        expression: "form.Contact"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      type: "number",
+                                      placeholder: "Contact Numer"
+                                    },
+                                    domProps: { value: _vm.form.Contact },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.remove_err("error_contact")
+                                      },
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "Contact",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", {
+                                    staticClass: "text-danger",
+                                    attrs: { id: "error_contact" }
+                                  })
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "form-group row" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-success",
+                                  attrs: {
+                                    "wire:click.prevent": "store()",
+                                    type: "button"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.save(_vm.form)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                        Save\n                                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.closeModal()
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                        Cancel\n                                    "
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade",
+                        attrs: {
+                          id: "custom-tabs-four-profile",
+                          role: "tabpanel",
+                          "aria-labelledby": "custom-tabs-four-profile-tab"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam. \n                    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade",
+                        attrs: {
+                          id: "custom-tabs-four-messages",
+                          role: "tabpanel",
+                          "aria-labelledby": "custom-tabs-four-messages-tab"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna. \n                    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade",
+                        attrs: {
+                          id: "custom-tabs-four-settings",
+                          role: "tabpanel",
+                          "aria-labelledby": "custom-tabs-four-settings-tab"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis. \n                    "
+                        )
+                      ]
                     )
                   ]
                 )
               ])
-            ])
-          ])
+            ]
+          )
         ])
       ])
     ])
