@@ -29,7 +29,6 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.1",
-        "@smartweb/vue-flash-message": "^0.6.10",
         "admin-lte": "^3.0.5",
         "sweetalert2": "^10.9.1",
         "vform": "^1.0.1",

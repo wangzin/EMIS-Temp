@@ -1,6 +1,6 @@
 require('./bootstrap');
 require('admin-lte');
-import Vue from 'vue'; 
+import Vue from 'vue';  
  
 import { InertiaApp } from '@inertiajs/inertia-vue';
 import { InertiaForm } from 'laravel-jetstream';
@@ -51,12 +51,12 @@ Vue.filter('formatDate', function(value) {
   });
 new Vue({
     render: (h) =>
-    h(InertiaApp, {
-        props: {
-            initialPage: JSON.parse(app.dataset.page),
-            resolveComponent: (name) => require(`./Pages/${name}`).default,
-        },
-    }),
+        h(InertiaApp, {
+            props: {
+                initialPage: JSON.parse(app.dataset.page),
+                resolveComponent: (name) => require(`./Pages/${name}`).default,
+            },
+        }),
 }).$mount(app);
 import moment from 'moment'
 

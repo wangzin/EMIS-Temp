@@ -2991,6 +2991,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -5237,6 +5239,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5262,6 +5268,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    shownexttab: function shownexttab(presentClass, nextClass) {
+      $("." + presentClass).removeClass("active");
+      $("." + presentClass).addClass("disabled");
+      $("." + nextClass).addClass("active");
+      $("." + presentClass + ">a").append("<i class='fa fa-check ml-1'></i>");
+      $("#" + presentClass).hide();
+      $("#" + nextClass).show();
+      $('.' + nextClass).addClass("active");
+    },
     loaddzongkhag: function loaddzongkhag() {
       var _this = this;
 
@@ -5288,20 +5303,6 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    closeModal: function closeModal() {
-      this.isShow = false;
-      this.reset();
-    },
-    reset: function reset() {
-      this.form = {
-        org_name: null,
-        dzongkhag: null,
-        gewog: null,
-        village: null,
-        Email: null,
-        Contact: null
-      };
-    },
     save: function save(data) {
       if (this.validateform()) {
         this.$Progress.start();
@@ -5324,7 +5325,6 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: 'Yes, delete it!'
       }).then(function (result) {
         if (result.value) {
-          //Send Request to server
           _this3.$inertia["delete"]('/organizationIndex/' + id).then(function (response) {
             alert(response.text);
             Swal.fire('Deleted!', 'User deleted successfully', 'success');
@@ -63247,63 +63247,6 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    _c("link", {
-      attrs: {
-        rel: "stylesheet",
-        href: "../../plugins/daterangepicker/daterangepicker.css"
-      }
-    }),
-    _vm._v(" "),
-    _c("link", {
-      attrs: {
-        rel: "stylesheet",
-        href: "../../plugins/icheck-bootstrap/icheck-bootstrap.min.css"
-      }
-    }),
-    _vm._v(" "),
-    _c("link", {
-      attrs: {
-        rel: "stylesheet",
-        href:
-          "../../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css"
-      }
-    }),
-    _vm._v(" "),
-    _c("link", {
-      attrs: {
-        rel: "stylesheet",
-        href:
-          "../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"
-      }
-    }),
-    _vm._v(" "),
-    _c("link", {
-      attrs: {
-        rel: "stylesheet",
-        href: "../../plugins/select2/css/select2.min.css"
-      }
-    }),
-    _vm._v(" "),
-    _c("link", {
-      attrs: {
-        rel: "stylesheet",
-        href:
-          "../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css"
-      }
-    }),
-    _vm._v(" "),
-    _c("link", {
-      attrs: {
-        rel: "stylesheet",
-        href:
-          "../../plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css"
-      }
-    }),
-    _vm._v(" "),
-    _c("link", {
-      attrs: { rel: "stylesheet", href: "../../dist/css/adminlte.min.css" }
-    }),
-    _vm._v(" "),
     _c(
       "nav",
       {
@@ -67505,81 +67448,141 @@ var render = function() {
                 _c(
                   "ul",
                   {
-                    staticClass: "nav nav-tabs",
-                    attrs: { id: "custom-tabs-four-tab", role: "tablist" }
+                    staticClass: "nav nav-tabs bg-cool-gray-200",
+                    attrs: { id: "org-tab", role: "tablist" }
                   },
                   [
-                    _c("li", { staticClass: "nav-item" }, [
+                    _c("li", { staticClass: "nav-item  basic-tab-content" }, [
                       _c(
                         "a",
                         {
-                          staticClass: "nav-link active",
+                          staticClass: "nav-link active basic-tab-content",
                           attrs: {
-                            id: "custom-tabs-four-home-tab",
+                            id: "",
                             "data-toggle": "pill",
-                            href: "#custom-tabs-four-home",
+                            href: "#basic-tab-content",
                             role: "tab",
                             "aria-controls": "custom-tabs-four-home",
                             "aria-selected": "true"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.shownexttab("", "basic-tab-content")
+                            }
                           }
                         },
                         [_vm._v("Basic Details")]
                       )
                     ]),
                     _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
+                    _c("li", { staticClass: "nav-item location-tab-content" }, [
                       _c(
                         "a",
                         {
-                          staticClass: "nav-link",
+                          staticClass: "nav-link location-tab-content",
                           attrs: {
-                            id: "custom-tabs-four-profile-tab",
                             "data-toggle": "pill",
-                            href: "#custom-tabs-four-profile",
+                            href: "#location-tab-content",
                             role: "tab",
                             "aria-controls": "custom-tabs-four-profile",
                             "aria-selected": "false"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.shownexttab(
+                                "basic-tab-content",
+                                "location-tab-content"
+                              )
+                            }
                           }
                         },
-                        [_vm._v("Infracture")]
+                        [_vm._v("Location Details")]
                       )
                     ]),
                     _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
+                    _c("li", { staticClass: "nav-item contact-tab-content" }, [
                       _c(
                         "a",
                         {
-                          staticClass: "nav-link",
+                          staticClass: "nav-link contact-tab-content",
                           attrs: {
-                            id: "custom-tabs-four-messages-tab",
                             "data-toggle": "pill",
-                            href: "#custom-tabs-four-messages",
+                            href: "#contact-tab-content",
                             role: "tab",
                             "aria-controls": "custom-tabs-four-messages",
                             "aria-selected": "false"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.shownexttab(
+                                "location-tab-content",
+                                "contact-tab-content"
+                              )
+                            }
                           }
                         },
-                        [_vm._v("Wash Facilities")]
+                        [_vm._v("Contact Details")]
                       )
                     ]),
                     _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          attrs: {
-                            id: "custom-tabs-four-settings-tab",
-                            "data-toggle": "pill",
-                            href: "#custom-tabs-four-settings",
-                            role: "tab",
-                            "aria-controls": "custom-tabs-four-settings",
-                            "aria-selected": "false"
-                          }
-                        },
-                        [_vm._v("SAP")]
-                      )
-                    ])
+                    _c(
+                      "li",
+                      { staticClass: "nav-item school_details-tab-content" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link school_details-tab-content",
+                            attrs: {
+                              id: "school_details-tab",
+                              "data-toggle": "pill",
+                              href: "#school_details-tab-content",
+                              role: "tab",
+                              "aria-controls": "custom-tabs-four-settings",
+                              "aria-selected": "false"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.shownexttab(
+                                  "contact-tab-content",
+                                  "school_details-tab-content"
+                                )
+                              }
+                            }
+                          },
+                          [_vm._v("School Details")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      { staticClass: "nav-item structure-tab-content" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link structure-tab-content",
+                            attrs: {
+                              "data-toggle": "pill",
+                              href: "#structure-tab-content",
+                              role: "tab",
+                              "aria-controls": "custom-tabs-four-settings",
+                              "aria-selected": "false"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.shownexttab(
+                                  "school_details-tab-content",
+                                  "structure-tab-content"
+                                )
+                              }
+                            }
+                          },
+                          [_vm._v("Structure Details")]
+                        )
+                      ]
+                    )
                   ]
                 )
               ]),
@@ -67589,7 +67592,7 @@ var render = function() {
                   "div",
                   {
                     staticClass: "tab-content",
-                    attrs: { id: "custom-tabs-four-tabContent" }
+                    attrs: { id: "org-tabContent" }
                   },
                   [
                     _c(
@@ -67597,7 +67600,7 @@ var render = function() {
                       {
                         staticClass: "tab-pane fade show active",
                         attrs: {
-                          id: "custom-tabs-four-home",
+                          id: "basic-tab-content",
                           role: "tabpanel",
                           "aria-labelledby": "custom-tabs-four-home-tab"
                         }
@@ -68058,9 +68061,9 @@ var render = function() {
                     _c(
                       "div",
                       {
-                        staticClass: "tab-pane fade",
+                        staticClass: "tab-pane fade show",
                         attrs: {
-                          id: "custom-tabs-four-profile",
+                          id: "location-tab-content",
                           role: "tabpanel",
                           "aria-labelledby": "custom-tabs-four-profile-tab"
                         }
@@ -68075,9 +68078,9 @@ var render = function() {
                     _c(
                       "div",
                       {
-                        staticClass: "tab-pane fade",
+                        staticClass: "tab-pane fade show",
                         attrs: {
-                          id: "custom-tabs-four-messages",
+                          id: "contact-tab-content",
                           role: "tabpanel",
                           "aria-labelledby": "custom-tabs-four-messages-tab"
                         }
@@ -68092,9 +68095,26 @@ var render = function() {
                     _c(
                       "div",
                       {
-                        staticClass: "tab-pane fade",
+                        staticClass: "tab-pane fade show",
                         attrs: {
-                          id: "custom-tabs-four-settings",
+                          id: "school_details-tab-content",
+                          role: "tabpanel",
+                          "aria-labelledby": "custom-tabs-four-settings-tab"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis. \n                    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade show",
+                        attrs: {
+                          id: "structure-tab-tab-details",
                           role: "tabpanel",
                           "aria-labelledby": "custom-tabs-four-settings-tab"
                         }
