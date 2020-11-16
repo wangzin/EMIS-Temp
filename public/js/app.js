@@ -85037,6 +85037,8 @@ var map = {
 	"./org/neworgform.vue": "./resources/js/Pages/org/neworgform.vue",
 	"./org/orgdetails": "./resources/js/Pages/org/orgdetails.vue",
 	"./org/orgdetails.vue": "./resources/js/Pages/org/orgdetails.vue",
+	"./register": "./resources/js/Pages/register.vue",
+	"./register.vue": "./resources/js/Pages/register.vue",
 	"./usermanagement/Usermanagement": "./resources/js/Pages/usermanagement/Usermanagement.vue",
 	"./usermanagement/Usermanagement.vue": "./resources/js/Pages/usermanagement/Usermanagement.vue"
 };
@@ -86236,6 +86238,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/register.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/Pages/register.vue ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/Pages/register.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/usermanagement/Usermanagement.vue":
 /*!**************************************************************!*\
   !*** ./resources/js/Pages/usermanagement/Usermanagement.vue ***!
@@ -86437,8 +86471,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\office\EMIS Enhancement\laravel8AdminLte\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\office\EMIS Enhancement\laravel8AdminLte\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! F:\EMIS-Temp\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\EMIS-Temp\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })
