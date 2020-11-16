@@ -45,69 +45,253 @@
                             <form>
                                 <div class="card-body">
                                     <div class="form-group row">
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <label>Organization Name:</label>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <label>School Category:</label>
+                                            <select v-model="form.orgtype" @click="remove_err('error_orgtype')" id="orgtype" class="form-control select2">
+                                                <option selected>-- Select Org Type --</option>
+                                                <option value="Private"> Private School </option>
+                                                <option value="public"> Public School </option>
+                                            </select>
+                                            <span class="text-danger" id="error_orgtype"></span>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <label>School Code:</label>
+                                            <select v-model="form.orgcode" @click="remove_err('error_orgcode')" id="orgcode" class="form-control select2">
+                                                <option selected>-- Select Org Code --</option>
+                                                <option value="028.201.00001"> 028.201.00001 </option>
+                                                <option value="028.201.00002">028.201.00002 </option>
+                                            </select>
+                                            <span class="text-danger" id="error_orgcode"></span>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <label>School Name:
+                                                <!-- <a href="#" data-toggle="tooltip" data-placement="top" title="please do not enter 'level' part like 'CPS', 'LSS', 'MSS', 'HSS' ">
+                                                    <img src="dist/img/questionMark.jpg" class="" style="width: 18px;">	
+                                                </a>  -->
+                                                 </label>
                                             <input type="text" class="form-control" @click="remove_err('error_orgname')" id="exampleInputEmail1" v-model="form.org_name" placeholder="Organization Name">
                                             <span class="text-danger" id="error_orgname"></span>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <label>Location Dzongkhag:</label>
-                                            <select v-model="form.dzongkhag" @click="remove_err('error_dzongkhag')" @change="getgewogvillage('gewog')" id="dzongkhagId" class="form-control select2">
-                                                <option selected>-- Select Dzongkhag --</option>
-                                                <option v-for="item in dzongkhagList" :key="item.Dzongkhag_Id" :value="item.Dzongkhag_Id">{{ item.Dzongkhag_Name }}</option>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <label>School Level:</label>
+                                            <select v-model="form.orglevel" @click="remove_err('error_orglevel')" id="orglevel" class="form-control select2">
+                                                <option selected>-- Select Org Type --</option>
+                                                <option value="1"> Higher Secondary School </option>
+                                                <option value="2"> Middle Secondary School </option>
+                                                <option value="3"> Primary School </option>
                                             </select>
-                                            <span class="text-danger" id="error_dzongkhag"></span>
+                                            <span class="text-danger" id="error_orglevel"></span>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <label>School Location type:</label>
+                                            <select v-model="form.agencycode" @click="remove_err('error_agencycode')" id="agencycode" class="form-control select2">
+                                                <option selected>-- Location --</option>
+                                                <option value="" label="- Please Select -">- Please Select -</option>
+                                                <option value="1" label="Urban Grade 1 [01]">Urban Grade 1 [01]</option>
+                                                <option value="2" label="Urban Grade 2 [02]">Urban Grade 2 [02]</option>
+                                                <option value="3" label="Semi-Urban [03]">Semi-Urban [03]</option>
+                                                <option value="4" label="Semi-Remote [04]">Semi-Remote [04]</option>
+                                                <option value="5" label="Remote [05]">Remote [05]</option>
+                                                <option value="6" label="Very-Remote [06]">Very-Remote [06]</option>
+                                                <option value="7" label="Difficult [07]">Difficult [07]</option>
+                                                <option value="9" label="Rural [08]">Rural [08]</option>
+                                                <option value="10" label="Semi-Rural [09]">Semi-Rural [09]</option>
+                                                <option value="11" label="Urban [10]">Urban [10]</option>
+                                                <option value="8" label="Unknown [99]">Unknown [99]</option>
+                                            </select>
+                                            <span class="text-danger" id="error_agencycode"></span>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <label>School Status:</label>
+                                           <select v-model="form.agencycode" @click="remove_err('error_agencycode')" id="agencycode" class="form-control select2">
+                                                <option value="" label="- Please Select -">- Please Select -</option>
+                                                <option value="1" label="Opened [1]">Opened [1]</option>
+                                                <option value="2" label="Closed [2]">Closed [2]</option>
+                                                <option value="3" label="Bifurcated [3]">Bifurcated [3]</option>
+                                                <option value="4" label="Merged [4]">Merged [4]</option>
+                                            </select>
+                                            <span class="text-danger" id="error_agencycode"></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <label>Agency Code:</label>
+                                            <input type="text" class="form-control" @click="remove_err('error_orgname')" id="exampleInputEmail1" v-model="form.org_name" placeholder="Agency Code">
+                                            <span class="text-danger" id="error_orgname"></span>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <label>RCSC Code:</label>
+                                            <input type="text" class="form-control" @click="remove_err('error_orgname')" id="exampleInputEmail1" v-model="form.org_name" placeholder="RCSC Code">
+                                            <span class="text-danger" id="error_orgname"></span>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <label>MOF Code:</label>
+                                            <input type="text" class="form-control" @click="remove_err('error_orgname')" id="exampleInputEmail1" v-model="form.org_name" placeholder="MOF Code">
+                                            <span class="text-danger" id="error_orgname"></span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <label>Location Gewog:</label>
-                                            <select @change="getgewogvillage('village')" @click="remove_err('error_gewog')" id="gewogid" v-model="form.gewog" class="form-control">
-                                                <option selected>-- Select Gewog --</option>
-                                                <option v-for="item in gewogList" :key="item.Gewog_Id" :value="item.Gewog_Id">{{ item.Gewog_Name }}</option>
-                                            </select>
-                                            <span class="text-danger" id="error_gewog"></span>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <label>Location Village:</label>
-                                            <select v-model="form.village" @click="remove_err('error_village')" class="form-control">
-                                                <option selected>-- Select Village --</option>
-                                                <option v-for="item in villageList" :key="item.Village_Serial_No" :value="item.Village_Serial_No">{{ item.Village_Name }}</option>
-                                            </select>
-                                            <span class="text-danger" id="error_village"></span>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <label>Year of Establishment:</label>
+                                            <input type="text" class="form-control" @click="remove_err('error_orgname')" id="exampleInputEmail1" v-model="form.org_name" placeholder="Year of establishment">
+                                            <span class="text-danger" id="error_orgname"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <label >Email:</label>
-                                            <input type="text" class="form-control" @click="remove_err('error_email')" placeholder="Email" v-model="form.Email">
-                                            <span class="text-danger" id="error_email"></span>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <label>Contact Number:</label>
-                                            <input type="number" class="form-control" @click="remove_err('error_contact')" placeholder="Contact Numer" v-model="form.Contact">
-                                            <span class="text-danger" id="error_contact"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
+                                    <div class="form-group row fa-pull-right">
                                         <button wire:click.prevent="store()" type="button" class="btn btn-success" @click="save(form)">
-                                            Save
-                                        </button>
-                                        <button @click="closeModal()" type="button" class="btn btn-default">
-                                            Cancel
+                                            Save and Next <i class="fa fa-arrow-next"></i>  
                                         </button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="tab-pane fade show" id="location-tab-content" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                            Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam. 
+                            <div class="form-group row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>Location Dzongkhag:</label>
+                                    <select v-model="form.dzongkhag" @click="remove_err('error_dzongkhag')" @change="getgewogvillage('gewog')" id="dzongkhagId" class="form-control select2">
+                                        <option selected>-- Select Dzongkhag --</option>
+                                        <option v-for="item in dzongkhagList" :key="item.Dzongkhag_Id" :value="item.Dzongkhag_Id">{{ item.Dzongkhag_Name }}</option>
+                                    </select>
+                                    <span class="text-danger" id="error_dzongkhag"></span>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>Location Gewog:</label>
+                                    <select @change="getgewogvillage('village')" @click="remove_err('error_gewog')" id="gewogid" v-model="form.gewog" class="form-control">
+                                        <option selected>-- Select Gewog --</option>
+                                        <option v-for="item in gewogList" :key="item.Gewog_Id" :value="item.Gewog_Id">{{ item.Gewog_Name }}</option>
+                                    </select>
+                                    <span class="text-danger" id="error_gewog"></span>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>Location Village:</label>
+                                    <select v-model="form.village" @click="remove_err('error_village')" class="form-control">
+                                        <option selected>-- Select Village --</option>
+                                        <option v-for="item in villageList" :key="item.Village_Serial_No" :value="item.Village_Serial_No">{{ item.Village_Name }}</option>
+                                    </select>
+                                    <span class="text-danger" id="error_village"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>Thram Number (less than 15 letters):</label>
+                                    <input type="text" class="form-control" @click="remove_err('error_orgname')" id="exampleInputEmail1" v-model="form.org_name" placeholder="Thram Number">
+                                    <span class="text-danger" id="error_orgname"></span>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>Altitude:</label>
+                                    <input type="text" class="form-control" @click="remove_err('error_orgname')" id="exampleInputEmail1" v-model="form.org_name" placeholder="Altitude">
+                                    <span class="text-danger" id="error_orgname"></span>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>Latitude:</label>
+                                    <input type="text" class="form-control" @click="remove_err('error_orgname')" id="exampleInputEmail1" v-model="form.org_name" placeholder="Latitude">
+                                    <span class="text-danger" id="error_orgname"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>Longitude :</label>
+                                    <input type="text" class="form-control" @click="remove_err('error_orgname')" id="exampleInputEmail1" v-model="form.org_name" placeholder="Longitude ">
+                                    <span class="text-danger" id="error_orgname"></span>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade show" id="contact-tab-content" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-                            Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna. 
+                            <div class="form-group row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label >Does the school have telephone connection? </label><br>
+                                    <input type="radio" name="connecgtion" id="connecgtion" @click="showtelephone('Yes')"> Yes 
+                                    <input type="radio" name="connecgtion" id="connecgtion" @click="showtelephone('No')"> No
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="display:none" id="telephonesec">
+                                    <label >Telephone No (less than 15 letters) </label>
+                                    <input type="text" class="form-control" @click="remove_err('error_Telephone')" id="Telephone" v-model="form.org_name" placeholder="Telephone">
+                                    <span class="text-danger" id="error_Telephone"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label >Does the school have internet connection? </label><br>
+                                    <input type="radio" name="connecgtion" id="connecgtion"> Yes 
+                                    <input type="radio" name="connecgtion" id="connecgtion"> No
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="faxsec">
+                                    <label >Fax No (less than 15 letters) </label>
+                                    <input type="text" class="form-control" @click="remove_err('error_Telephone')" id="Telephone" v-model="form.org_name" placeholder="Fax">
+                                    <span class="text-danger" id="error_Telephone"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label >Email:</label>
+                                    <input type="text" class="form-control" @click="remove_err('error_email')" placeholder="Email" v-model="form.Email">
+                                    <span class="text-danger" id="error_email"></span>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>Mobile Number:</label>
+                                    <input type="number" class="form-control" @click="remove_err('error_contact')" placeholder="Mobile Numer" v-model="form.Contact">
+                                    <span class="text-danger" id="error_contact"></span>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>Remarks On Telephone:</label>
+                                    <input type="text" class="form-control" @click="remove_err('error_contact')" placeholder="Remarks" v-model="form.Contact">
+                                    <span class="text-danger" id="error_contact"></span>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade show" id="school_details-tab-content" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
-                            Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis. 
+                            <div class="form-group row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>Climate Type:</label>
+                                    <select v-model="form.dzongkhag" @click="remove_err('error_dzongkhag')" @change="getgewogvillage('gewog')" id="dzongkhagId" class="form-control select2">
+                                        <option value="" label="- Please Select -">- Please Select -</option>
+                                        <option value="1" label="Hot Sub-tropical [01]">Hot Sub-tropical [01]</option>
+                                        <option value="2" label="Warm Sub-tropical [02]">Warm Sub-tropical [02]</option>
+                                        <option value="3" label="Warm Temprate [03]">Warm Temprate [03]</option>
+                                        <option value="4" label="Cool Temprate [04]">Cool Temprate [04]</option>
+                                        <option value="5" label="Alpine [05]">Alpine [05]</option>
+                                        <option value="6" label="Unknown [99]">Unknown [99]</option>
+                                    </select>
+                                    <span class="text-danger" id="error_dzongkhag"></span>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>Road Type:</label>
+                                    <select @change="getgewogvillage('village')" @click="remove_err('error_gewog')" id="gewogid" v-model="form.gewog" class="form-control">
+                                        <option value="" label="- Please Select -">- Please Select -</option>
+                                        <option value="3" label="Farm/Power tiller Road [03]">Farm/Power tiller Road [03]</option>
+                                        <option value="2" label="FeederRoad [02]">FeederRoad [02]</option>
+                                        <option value="1" label="TarredRoad [01]">TarredRoad [01]</option>
+                                        <option value="4" label="Unknown [99]">Unknown [99]</option>
+                                    </select>
+                                    <span class="text-danger" id="error_gewog"></span>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>Is the school accessible by motor road?:</label><br>
+                                    <input type="radio" name="connecgtion" id="connecgtion" @click="showacc('Yes')"> Yes 
+                                    <input type="radio" name="connecgtion" id="connecgtion"  @click="showacc('No')"> No
+                                </div>
+                            </div>
+                            <div class="form-group row" style="display:none" id="accessibilitysec">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label >How far is the school from road(days)?:</label>
+                                    <input type="text" class="form-control" @click="remove_err('error_email')" v-model="form.Email">
+                                    <span class="text-danger" id="error_email"></span>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>How far is the school from road (kilometers)?:</label>
+                                    <input type="number" class="form-control" @click="remove_err('error_contact')" v-model="form.Contact">
+                                    <span class="text-danger" id="error_contact"></span>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <label>how far is the school from road (hours)?:</label>
+                                    <input type="text" class="form-control" @click="remove_err('error_contact')" v-model="form.Contact">
+                                    <span class="text-danger" id="error_contact"></span>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade show" id="structure-tab-tab-details" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
                             Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis. 
@@ -250,6 +434,22 @@
             remove_err: function(errorid){
                 $('#'+errorid).html('');
             },
+            showtelephone:function(type){
+                if(type=="Yes"){
+                    $('#telephonesec').show();
+                }
+                else{
+                    $('#telephonesec').hide();
+                }
+            },
+            showacc:function(){
+               if(type=="No"){
+                    $('#accessibilitysec').show();
+                }
+                else{
+                    $('#accessibilitysec').hide();
+                } 
+            }
         },
         mounted () {
             this.loaddzongkhag();
