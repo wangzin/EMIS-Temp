@@ -47,12 +47,12 @@
                                     <div class="form-group row">
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                             <label>School Category:</label>
-                                            <select v-model="form.orgtype" @click="remove_err('error_orgtype')" id="orgtype" class="form-control select2">
-                                                <option selected>-- Select Org Type --</option>
+                                            <select v-model="form.orgtype" @click="remove_err('error_orgcategory')" id="orgcategory" class="form-control select2">
+                                                <option value="">-- Select Org Type --</option>
                                                 <option value="Private"> Private School </option>
                                                 <option value="public"> Public School </option>
                                             </select>
-                                            <span class="text-danger" id="error_orgtype"></span>
+                                            <span class="text-danger" id="error_orgcategory"></span>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                             <label>School Code:</label>
@@ -141,8 +141,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row fa-pull-right">
-                                        <button wire:click.prevent="store()" type="button" class="btn btn-success" @click="save(form)">
-                                            Save and Next <i class="fa fa-arrow-next"></i>  
+                                        <button wire:click.prevent="store()" type="button" class="btn btn-success" @click="shownexttab('basic-tab-content','location-tab-content')">
+                                            Save and Next <i class="fa fa-arrow-right"></i> 
                                         </button>
                                     </div>
                                 </div>
@@ -198,6 +198,15 @@
                                     <input type="text" class="form-control" @click="remove_err('error_orgname')" id="exampleInputEmail1" v-model="form.org_name" placeholder="Longitude ">
                                     <span class="text-danger" id="error_orgname"></span>
                                 </div>
+                            </div>
+                            <div class="form-group row fa-pull-right">
+                                <button wire:click.prevent="store()" type="button" class="btn btn-primary" @click="showpretab('basic-tab-content')">
+                                    <i class="fa fa-arrow-left"></i>  Previous  
+                                </button>
+                                &nbsp;
+                                <button wire:click.prevent="store()" type="button" class="btn btn-success" @click="shownexttab('location-tab-content','contact-tab-content')">
+                                    Save and Next <i class="fa fa-arrow-right"></i>  
+                                </button>
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="contact-tab-content" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
@@ -332,13 +341,34 @@
         },
         methods: {
             shownexttab(presentClass,nextClass){
-                $("." + presentClass).removeClass("active");
-                $("." + presentClass).addClass("disabled");
-                $("." + nextClass).addClass("active");
-                $("." + presentClass + ">a").append("<i class='fa fa-check ml-1'></i>");
-                $("#" + presentClass).hide();
-                $("#" + nextClass).show();
-                $('.'+nextClass).addClass("active");
+                let validated=true;
+                if(nextClass=="location-tab-content"){
+                    validated=this.validatebasicdetials();
+                }
+                if(validated){
+                    $("." + presentClass).removeClass("active");
+                    $("." + presentClass).addClass("disabled");
+                    $("." + nextClass).addClass("active");
+                    $("." + presentClass + ">a").append("<span class='text-blue'><i class='fa fa-check ml-1'></i></span>");
+                    $("#" + presentClass).hide();
+                    $("#" + nextClass).show();
+                    $('.'+nextClass).addClass("active");
+                }
+            },
+            validatebasicdetials:function(){
+                let returntye=true;
+                if(this.form.org_name==null){
+                    $('#error_orgname').html('Please provide org name');
+                    returntye=false;
+                } 
+                if($('#orgcategory').val()=="" || $('#orgcategory').val()==null){
+                    $('#error_orgcategory').html('Please select org category');
+                    returntye=false;
+                }
+                return returntye;
+            },
+            showpretab:function(){
+
             },
             loaddzongkhag(){ 
                 axios.get('/getdzongkhag')
@@ -401,10 +431,7 @@
             },
             validateform: function(){
                 let retuentype=true;
-                if(this.form.org_name==null){
-                    $('#error_orgname').html('Please provide org name');
-                    retuentype=false;
-                }
+                
                 if(this.form.dzongkhag==null){
                     $('#error_dzongkhag').html('Please select dzongkhag');
                     retuentype=false;

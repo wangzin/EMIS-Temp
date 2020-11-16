@@ -5430,6 +5430,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5456,14 +5462,38 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     shownexttab: function shownexttab(presentClass, nextClass) {
-      $("." + presentClass).removeClass("active");
-      $("." + presentClass).addClass("disabled");
-      $("." + nextClass).addClass("active");
-      $("." + presentClass + ">a").append("<i class='fa fa-check ml-1'></i>");
-      $("#" + presentClass).hide();
-      $("#" + nextClass).show();
-      $('.' + nextClass).addClass("active");
+      var validated = true;
+
+      if (nextClass == "location-tab-content") {
+        validated = this.validatebasicdetials();
+      }
+
+      if (validated) {
+        $("." + presentClass).removeClass("active");
+        $("." + presentClass).addClass("disabled");
+        $("." + nextClass).addClass("active");
+        $("." + presentClass + ">a").append("<span class='text-blue'><i class='fa fa-check ml-1'></i></span>");
+        $("#" + presentClass).hide();
+        $("#" + nextClass).show();
+        $('.' + nextClass).addClass("active");
+      }
     },
+    validatebasicdetials: function validatebasicdetials() {
+      var returntye = true;
+
+      if (this.form.org_name == null) {
+        $('#error_orgname').html('Please provide org name');
+        returntye = false;
+      }
+
+      if ($('#orgcategory').val() == "" || $('#orgcategory').val() == null) {
+        $('#error_orgcategory').html('Please select org category');
+        returntye = false;
+      }
+
+      return returntye;
+    },
+    showpretab: function showpretab() {},
     loaddzongkhag: function loaddzongkhag() {
       var _this = this;
 
@@ -5528,11 +5558,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     validateform: function validateform() {
       var retuentype = true;
-
-      if (this.form.org_name == null) {
-        $('#error_orgname').html('Please provide org name');
-        retuentype = false;
-      }
 
       if (this.form.dzongkhag == null) {
         $('#error_dzongkhag').html('Please select dzongkhag');
@@ -67831,10 +67856,12 @@ var render = function() {
                                         }
                                       ],
                                       staticClass: "form-control select2",
-                                      attrs: { id: "orgtype" },
+                                      attrs: { id: "orgcategory" },
                                       on: {
                                         click: function($event) {
-                                          return _vm.remove_err("error_orgtype")
+                                          return _vm.remove_err(
+                                            "error_orgcategory"
+                                          )
                                         },
                                         change: function($event) {
                                           var $$selectedVal = Array.prototype.filter
@@ -67862,11 +67889,9 @@ var render = function() {
                                       }
                                     },
                                     [
-                                      _c(
-                                        "option",
-                                        { attrs: { selected: "" } },
-                                        [_vm._v("-- Select Org Type --")]
-                                      ),
+                                      _c("option", { attrs: { value: "" } }, [
+                                        _vm._v("-- Select Org Type --")
+                                      ]),
                                       _vm._v(" "),
                                       _c(
                                         "option",
@@ -67884,7 +67909,7 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("span", {
                                     staticClass: "text-danger",
-                                    attrs: { id: "error_orgtype" }
+                                    attrs: { id: "error_orgcategory" }
                                   })
                                 ]
                               ),
@@ -68642,32 +68667,20 @@ var render = function() {
                                     },
                                     on: {
                                       click: function($event) {
-                                        return _vm.save(_vm.form)
+                                        return _vm.shownexttab(
+                                          "basic-tab-content",
+                                          "location-tab-content"
+                                        )
                                       }
                                     }
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                        Save & Next\n                                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-default",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.closeModal()
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                        Cancel\n                                    "
-                                    )
+                                      "\n                                        Save and Next "
+                                    ),
+                                    _c("i", {
+                                      staticClass: "fa fa-arrow-right"
+                                    })
                                   ]
                                 )
                               ]
@@ -69123,7 +69136,62 @@ var render = function() {
                               })
                             ]
                           )
-                        ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "form-group row fa-pull-right" },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  "wire:click.prevent": "store()",
+                                  type: "button"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.showpretab("basic-tab-content")
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", { staticClass: "fa fa-arrow-left" }),
+                                _vm._v(
+                                  "  Previous  \n                            "
+                                )
+                              ]
+                            ),
+                            _vm._v(
+                              "\n                             \n                            "
+                            ),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-success",
+                                attrs: {
+                                  "wire:click.prevent": "store()",
+                                  type: "button"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.shownexttab(
+                                      "location-tab-content",
+                                      "contact-tab-content"
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                Save and Next "
+                                ),
+                                _c("i", { staticClass: "fa fa-arrow-right" })
+                              ]
+                            )
+                          ]
+                        )
                       ]
                     ),
                     _vm._v(" "),
@@ -86471,8 +86539,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\EMIS-Temp\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\EMIS-Temp\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! D:\office\EMIS Enhancement\laravel8AdminLte\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\office\EMIS Enhancement\laravel8AdminLte\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })
