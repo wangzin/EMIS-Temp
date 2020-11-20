@@ -349,7 +349,7 @@
                     $("." + presentClass).removeClass("active");
                     $("." + presentClass).addClass("disabled");
                     $("." + nextClass).addClass("active");
-                    $("." + presentClass + ">a").append("<span class='text-blue'><i class='fa fa-check ml-1'></i></span>");
+                    $("." + presentClass + ">a").append("<span class='text-blue' id='checkId'"+presentClass+"'><i class='fa fa-check ml-1'></i></span>");
                     $("#" + presentClass).hide();
                     $("#" + nextClass).show();
                     $('.'+nextClass).addClass("active");

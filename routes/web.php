@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrgController;
+use App\Http\Controllers\MastermanagementController;
+use App\Http\Controllers\TraningController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +31,5 @@ Route::get('/village/{id}', [UserController::class,'getvillagelist'])->name('vil
 Route::get('/newogranozation', [UserController::class,'newogranozation'])->name('newogranozation'); 
 
 Route::resource('/organizationIndex', OrgController::class); 
+Route::get('/applytraining', [TraningController::class, 'trainingindex'])->name("applytraining");
+Route::get('/masterManagement', [MastermanagementController::class,'masterManagementindex'])->name('masterManagement');

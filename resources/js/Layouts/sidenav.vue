@@ -109,7 +109,29 @@
               </li>
             </ul>
           </li>
-          
+          <li class="nav-item has-treeview" id="insetLinksection">
+            <a href="#" class="nav-link" id="insetLink">
+              <i class="nav-icon fa fa-tv"></i>
+              <p>
+                 INSET
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" >
+                <a href="/applytraining" class="nav-link" id="applytraining">
+                  <i class="fa fa-angle-double-right nav-icon"></i>
+                  <p> Apply Training</p>
+                </a>
+              </li>  
+              <li class="nav-item">
+                <a href="/listTraining" class="nav-link">
+                  <i class="fa fa-angle-double-right nav-icon"></i>
+                  <p>List Training</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="/usermanagement" class="nav-link">
               <i class="nav-icon fa fa-search"></i>

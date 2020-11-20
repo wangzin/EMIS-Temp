@@ -1,3 +1,5 @@
+window.$=window.jQuery = require('jquery'); 
+
 require('./bootstrap');
 require('admin-lte');
 import Vue from 'vue';  
@@ -6,6 +8,8 @@ import { InertiaApp } from '@inertiajs/inertia-vue';
 import { InertiaForm } from 'laravel-jetstream';
 import PortalVue from 'portal-vue';
 import VueProgressBar from 'vue-progressbar';
+import VModal from "vue-js-modal"; 
+Vue.use(VModal);
 
 Vue.use(VueProgressBar, {
   color: 'rgb(143, 255, 199)',

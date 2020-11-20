@@ -33,6 +33,7 @@
         "sweetalert2": "^10.9.1",
         "v-tooltip": "^2.0.3",
         "vform": "^1.0.1",
+        "vue-js-modal": "^2.0.0-rc.6",
         "vue-progressbar": "^0.7.5",
         "watch": "^1.0.2"
     }
